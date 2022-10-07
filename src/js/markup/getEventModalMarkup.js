@@ -1,3 +1,3 @@
-function getEventModalMarkup(data) {
+export function getEventModalMarkup(data) {
   return `<div>eventModalMarkup</div>`
 }

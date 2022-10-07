@@ -1,3 +1,3 @@
-function getCardMarkup(data) {
+export function getCardMarkup(data) {
   return `<div>cardMarkup</div>`
 }
