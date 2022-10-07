@@ -21,7 +21,7 @@
   // Від 0 до 767
 
   @if $type == 'mob-only' {
-    @media screen and (max-width: ($tablet - 0.02)) {
+    @media screen and (max-width: ($tablet - 1)) {
       @content;
     }
   }
@@ -37,7 +37,7 @@
   // Від 768 до 1199
 
   @if $type == 'tab-only' {
-    @media screen and (min-width: $tablet) and (max-width: ($desktop - 0.02)) {
+    @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
       @content;
     }
   }
@@ -53,7 +53,7 @@
   //  До 1279
 
   @if $type == 'not-desk' {
-    @media screen and (max-width: ($desktop - 0.02)) {
+    @media screen and (max-width: ($desktop - 1)) {
       @content;
     }
   }
