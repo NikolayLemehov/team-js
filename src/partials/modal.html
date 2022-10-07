@@ -1,6 +1,16 @@
-<section class="modal visually-hidden">
-  <form class="modal__container">
-    <div class="modal__header">
+<section class="modal visually-hidden" data-modal>
+  <div class="modal__container">
+    <button class="button-close" data-modal-close>
+      <svg class="button-close__icon">
+        <use
+          href="./images/symbol-defs.svg#icon-close"
+          width="25px"
+          height="25px"
+        ></use>
+      </svg>
+    </button>
+    <div class="modal__content"></div>
+    <!-- <div class="modal__header">
       <img
         class="modal__img"
         src="https://strana.today/img/article/2105/79_main.jpeg"
@@ -38,10 +48,10 @@
     <div class="modal__bottomText">
       <h2 class="modal__title">WHO</h2>
       <p class="modal__text">The Black Eyed Peas</p>
-      <div class="modal__prices">
+      <div class="modal__priceSection">
         <h2 class="modal__title">PRICES</h2>
-        <div class="modal__priceSection">
-          <div class="modal__standartPrice">
+        <div class="modal__priceAndBtn">
+          <div>
             <p class="modal__text">Standart 300-500 UAH</p>
             <div class="modal__buyTicketsBtn">
               <button class="modal__btnBlue" type="button">BUY TICKETS</button>
@@ -60,6 +70,6 @@
       <button class="modal__btnAuthor" type="button">
         MORE FROM THIS AUTHOR
       </button>
-    </div>
-  </form>
+    </div> -->
+  </div>
 </section>
