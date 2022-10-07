@@ -30,6 +30,9 @@
 }
 .modal__right-text {
   max-width: 427;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
 }
 .modal__imgBig {
   width: 427px;
@@ -42,10 +45,19 @@
   font-size: 24px;
   line-height: 1.208;
   color: #dc56c5;
+  padding-bottom: 7px;
 }
 .modal__text {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
   color: #0e0e0e;
+}
+.modal__prices {
+  margin-top: 20px;
+}
+.modal__priceSection {
+  padding-top: 20px;
+  display: flex;
+  gap: 60px;
 }
