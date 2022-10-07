@@ -1,0 +1,31 @@
+.modal__container {
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 1280px;
+  padding-left: 74px;
+  padding-right: 74px;
+  outline: 1px solid red;
+}
+.modal__header {
+  display: flex;
+  justify-content: center;
+  padding-top: 54px;
+  padding-bottom: 40px;
+}
+.modal__img {
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 100px;
+  display: flex;
+}
+.modal__mainPart {
+  display: flex;
+  gap: 32px;
+}
+.modal__imgBig {
+  width: 427px;
+  height: 326px;
+  object-fit: cover;
+}
