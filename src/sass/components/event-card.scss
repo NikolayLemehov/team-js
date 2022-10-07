@@ -1,3 +1,21 @@
-.event-card {
-  //
+.card-list {
+display: flex;
+flex-wrap: wrap;
+gap: 32px;
+margin-bottom: 60px;
 }
+
+.event__info {
+display: flex;
+flex-direction: column;
+margin-top: 8px;
+text-align: center;
+gap: 8px;
+}
+
+.event__artist {
+  font-size: 16px;
+  line-height: 1.25;
+  color: #DC56C5;
+}
+
