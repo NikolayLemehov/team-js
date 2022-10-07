@@ -1,21 +1,148 @@
 .card-list {
-display: flex;
-flex-wrap: wrap;
-gap: 32px;
-margin-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 20px;
+  margin-bottom: 60px;
+
+  @include mb(tab) {
+    gap: 40px 32px;
+  }
+}
+
+.card__item {
+  position: relative;
+
+  flex-basis: calc((100% - 20px) / 2);
+  min-height: 208px;
+
+  @include mb(tab) {
+    flex-basis: calc((100% - 96px) / 4);
+    min-height: 223px;
+  }
+
+  @include mb(desk) {
+    min-height: 320px;
+  }
+
+}
+
+.card__item::before {
+  content: "";
+  display: block;
+  position: relative;
+
+  width: 102px;
+  height: 95px;
+
+  left: 28px;
+  margin-bottom: 42px;
+
+
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  ;
+  border-radius: 50px 0px;
+
+  @include mb(tab) {
+    left: 32px;
+    width: 120px;
+    height: 112px;
+
+    margin-bottom: 34px;
+  }
+
+  @include mb(desk) {
+    left: 61px;
+    width: 227px;
+    height: 213px;
+
+    margin-bottom: 35px;
+  }
+
+}
+
+.card__thumb {
+  position: absolute;
+
+  top: 9px;
+  right: 10px;
+
+  min-width: 120px;
+  min-height: 120px;
+
+  border-radius: 50px 0px;
+
+  @include mb(tab) {
+    min-width: 141px;
+    min-height: 120px;
+
+    top: 10px;
+    right: 11px;
+  }
+
+  @include mb(desk) {
+    min-width: 267px;
+    min-height: 220px;
+
+    top: 19px;
+    right: 21px;
+  }
 }
 
 .event__info {
-display: flex;
-flex-direction: column;
-margin-top: 8px;
-text-align: center;
-gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 8px;
+  text-align: center;
+
+  @include mb(desk) {
+    gap: 8px;
+  }
 }
 
 .event__artist {
-  font-size: 16px;
-  line-height: 1.25;
+  font-size: 14px;
+  line-height: 1.21;
   color: #DC56C5;
+
+  @include mb(tab) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
+.event__data {
+  font-size: 14px;
+  line-height: 1.21;
+
+  @include mb(tab) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.event__address {
+  display: block;
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.25;
+
+  text-align: center;
+
+  @include mb(tab) {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}
+
+.event__icon {
+  margin-right: 3px;
+  fill: currentColor;
+
+  @include mb(tab) {
+    width: 8px;
+    height: 10px;
+  }
+}
