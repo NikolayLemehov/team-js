@@ -1,0 +1,101 @@
+.modal {
+  padding-top: 480px;
+}
+.modal__container {
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 1034px;
+  padding-left: 74px;
+  padding-right: 74px;
+  outline: 1px solid red;
+  background: #fff2fd;
+  border-radius: 300px 0px;
+}
+.modal__header {
+  display: flex;
+  justify-content: center;
+  padding-top: 54px;
+  padding-bottom: 40px;
+}
+.modal__img {
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 100px;
+  display: flex;
+}
+.modal__mainPart {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  padding-bottom: 16px;
+}
+.modal__right-text {
+  min-width: 427;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.modal__imgBig {
+  max-width: 427px;
+  height: 326px;
+  object-fit: cover;
+}
+
+.modal__title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.208;
+  color: #dc56c5;
+  padding-bottom: 7px;
+}
+.modal__text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #0e0e0e;
+}
+.modal__prices {
+  margin-top: 20px;
+}
+.modal__priceSection {
+  display: flex;
+  gap: 60px;
+}
+
+.modal__buyTicketsBtn {
+  padding-top: 20px;
+}
+.modal__btnBlue {
+  width: 145px;
+  height: 40px;
+  background: #4c00fe;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #ffffff;
+}
+.modal__lastBtn {
+  padding-top: 60px;
+  padding-bottom: 65px;
+  display: flex;
+  justify-content: center;
+  outline: none;
+}
+
+.modal__btnAuthor {
+  border: 1px solid #4c00fe;
+  background: #fff2fd;
+
+  color: #4c00fe;
+
+  border-radius: 5px;
+  width: 255px;
+  height: 40px;
+}
+button {
+  cursor: pointer;
+  border: none;
+}

@@ -3,11 +3,13 @@
 @import 'utils/vars';
 @import 'utils/mixins';
 @import 'utils/playsholders';
+@import 'utils/visually-hidden';
 
 // base
 
 @import 'base/common';
 @import 'base/container';
+@import 'base/modal';
 
 // layout
 
