@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $padding-container-mob;
+  padding-left: $padding-container-mob;
+
+  @media screen and (min-width: $vp-big-mob) {
+    width: $vp-big-mob;
+  }
+
+  @media screen and (min-width: $vp-tab) {
+    width: $vp-tab;
+    padding-right: $padding-container-tablet;
+    padding-left: $padding-container-tablet;
+  }
+
+  @media screen and (min-width: $vp-desk) {
+    width: $vp-desk;
+    padding-right: $padding-container-desk;
+    padding-left: $padding-container-desk;
+  }
+}

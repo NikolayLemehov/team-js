@@ -1,0 +1,60 @@
+@mixin retina {
+  @media (min-device-pixel-ratio: $retina-dppx),
+    (min-resolution: $retina-dpi),
+    (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
+@mixin mb($type) {
+  $mobile: $vp-big-mob;
+  $tablet: $vp-tab;
+  $desktop: $vp-desk;
+
+  // Від 480 рх
+  @if $type == 'mob' {
+    @media screen and (min-width: $mobile) {
+      @content;
+    }
+  }
+
+  // Від 0 до 767
+
+  @if $type == 'mob-only' {
+    @media screen and (max-width: ($tablet - 0.02)) {
+      @content;
+    }
+  }
+
+  // Від 768 рх
+
+  @if $type == 'tab' {
+    @media screen and (min-width: $tablet) {
+      @content;
+    }
+  }
+
+  // Від 768 до 1199
+
+  @if $type == 'tab-only' {
+    @media screen and (min-width: $tablet) and (max-width: ($desktop - 0.02)) {
+      @content;
+    }
+  }
+
+  // Від 1280
+
+  @if $type == 'desk' {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+
+  //  До 1279
+
+  @if $type == 'not-desk' {
+    @media screen and (max-width: ($desktop - 0.02)) {
+      @content;
+    }
+  }
+}

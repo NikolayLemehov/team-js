@@ -1,0 +1,31 @@
+// Colors
+
+$color-black: #212121;
+$color-white: #ffffff;
+
+// animation
+
+$transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+
+
+// Fonts
+
+$font-primary: 'Montserrat', Arial, sans-serif;
+
+// Retina
+
+$retina-dpi: 192dpi;
+$retina-dppx: 2dppx;
+
+// Breakpoints
+
+$vp-mob: 320px;
+$vp-big-mob: 480px;
+$vp-tab: 768px;
+$vp-desk: 1280px;
+
+// Container padding
+
+$padding-container-desk: 37px;
+$padding-container-tablet: 32px;
+$padding-container-mob: 20px;
