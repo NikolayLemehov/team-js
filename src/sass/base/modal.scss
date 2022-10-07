@@ -6,6 +6,8 @@
   padding-left: 74px;
   padding-right: 74px;
   outline: 1px solid red;
+  background: #fff2fd;
+  border-radius: 300px 0px;
 }
 .modal__header {
   display: flex;
@@ -23,9 +25,26 @@
 .modal__mainPart {
   display: flex;
   gap: 32px;
+  justify-content: center;
+}
+.modal__right-text {
+  max-width: 427;
 }
 .modal__imgBig {
   width: 427px;
   height: 326px;
   object-fit: cover;
+}
+
+.modal__title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.208;
+  color: #dc56c5;
+}
+.modal__text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #0e0e0e;
 }

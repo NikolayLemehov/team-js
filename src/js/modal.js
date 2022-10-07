@@ -1,4 +1,4 @@
-let more = document.querySelector('.more');
+const more = document.querySelector('.more');
 modal = document.querySelector('.modal');
 close = document.querySelector('.close');
 
