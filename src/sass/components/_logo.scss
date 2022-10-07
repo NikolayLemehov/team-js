@@ -1,0 +1,12 @@
+.logo__img {
+  width: 60px;
+  height: 25px;
+  @include mb('tab') {
+    width: 100px;
+    height: 29px;
+  }
+  @include mb('desk') {
+    width: 140px;
+    height: 70px;
+  }
+}
