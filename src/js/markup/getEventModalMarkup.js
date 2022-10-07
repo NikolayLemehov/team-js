@@ -15,7 +15,7 @@ export function getEventModalMarkup(data) {
       <div class="modal__big-img">
         <img
           class="modal__imgBig"
-          src="https://strana.today/img/article/2105/79_main.jpeg"
+          src="${data.data.images[1].url}"
           alt="The Black Eyed Peas"
           height="326px"
         />
@@ -23,24 +23,21 @@ export function getEventModalMarkup(data) {
       <div class="modal__right-text">
         <div>
           <h2 class="modal__title">INFO</h2>
-          <p class="modal__text">
-            Atlas Weekend is the largest music festival in Ukraine.More than 200
-            artists will create a proper music festival atmosphere on 10 stages
-          </p>
+          <p class="modal__text">${data.data.info}</p>
         </div>
         <div>
           <h2 class="modal__title">WHEN</h2>
-          <p class="modal__text">2021-06-09 20:00 (Kyiv/Ukraine)</p>
+          <p class="modal__text">${data.data.dates.start.localDate} ${data.data.dates.start.localTime} (${data.data.dates.timezone})</p>
         </div>
         <div>
           <h2 class="modal__title">WHERE</h2>
-          <p class="modal__text">Kyiv, Ukraine VDNH</p>
+          <p class="modal__text">${data.data.promoter.description} ${data.data.products[0].name}</p>
         </div>
       </div>
     </div>
     <div class="modal__bottomText">
       <h2 class="modal__title">WHO</h2>
-      <p class="modal__text">The Black Eyed Peas</p>
+      <p class="modal__text">${data.data.name}</p>
       <div class="modal__priceSection">
         <h2 class="modal__title">PRICES</h2>
         <div class="modal__priceAndBtn">
