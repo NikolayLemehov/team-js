@@ -1,16 +1,41 @@
 .header {
-  position: absolute;
-  width: 386px;
-  height: 458px;
-  left: 229px;
-  top: -193px;
+  max-width: 1280px;
+  padding-top: 40px;
+  padding-bottom: 120px;
+  margin-left: auto;
+  margin-right: auto;
 
-  background: linear-gradient(
-    136.07deg,
-    rgba(196, 196, 196, 0.03) 10.75%,
-    rgba(196, 196, 196, 0) 92.33%
-  );
-  backdrop-filter: blur(15px);
-  transform: rotate(90deg);
-  //
+  text-align: center;
+
+  background-color: rgba(11, 11, 11, 0.5);
+
+  &__title {
+    max-width: 640px;
+    width: 100%;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 48px;
+
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 1.22;
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    color: #dc56c5;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @include mb(tab-only) {
+      max-width: 400px;
+      font-size: 30px;
+    }
+
+    @include mb(mob-only) {
+      max-width: 280px;
+      font-size: 18px;
+    }
+  }
 }
