@@ -1,11 +1,12 @@
 export function getEventModalMarkup(data) {
-  const { images } = data;
-  console.log(data.images);
+  const { id } = data;
+  console.log(data);
+  console.log(data.data.images[1].url);
   return `
   <div class="modal__header">
       <img
         class="modal__img"
-        src="${images}"
+        src="${data.data.images[1].url}"
         alt="The Black Eyed Peas"
         height="132px"
       />
