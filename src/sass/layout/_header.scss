@@ -1,3 +1,16 @@
 .header {
-//
+  position: absolute;
+  width: 386px;
+  height: 458px;
+  left: 229px;
+  top: -193px;
+
+  background: linear-gradient(
+    136.07deg,
+    rgba(196, 196, 196, 0.03) 10.75%,
+    rgba(196, 196, 196, 0) 92.33%
+  );
+  backdrop-filter: blur(15px);
+  transform: rotate(90deg);
+  //
 }
