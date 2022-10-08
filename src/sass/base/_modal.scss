@@ -16,11 +16,13 @@ button {
   // color: #4c00fe;
   background: #4c00fe;
   background-color: inherit;
+  padding: 0;
 
   &__icon {
-    width: 11px;
-    height: 11px;
+    width: 25px;
+    height: 25px;
     fill: currentColor;
+    display: block;
   }
 
   &:hover,

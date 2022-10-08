@@ -16,8 +16,5 @@ export function toggleModal() {
 
 export function renderModal(data) {
   removeChildren(refs.modalContent);
-  refs.modalContent.insertAdjacentHTML(
-    'beforebegin',
-    getEventModalMarkup(data)
-  );
+  refs.modalContent.insertAdjacentHTML('afterbegin', getEventModalMarkup(data));
 }
