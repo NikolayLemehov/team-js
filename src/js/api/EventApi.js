@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
 const eventAxios = axios.create({
   baseURL: 'https://app.ticketmaster.com/discovery/v2/',
   params: {
     apikey: 'EWGWF2UdExHGw0D6tj4sW6ARGH8R6i7m',
   },
-});
+})
 
 class EventApi {
   #page = 1;
