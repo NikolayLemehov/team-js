@@ -1,5 +1,5 @@
 import {removeChildren} from "../utils/removeChildren";
-import {getCardListMarkup} from "../markup/getCardListMarkup";
+import { getCardListMarkup } from "../markup/getCardListMarkup";
 
 const cardListRef = document.querySelector('.card-list');
 
