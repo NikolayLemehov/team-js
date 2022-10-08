@@ -1,3 +1,18 @@
 .footer {
-//
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.footer__copy {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #939393;
+
+  @include mb('tab') {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }

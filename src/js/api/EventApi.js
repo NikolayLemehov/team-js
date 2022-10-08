@@ -1,15 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
 const eventAxios = axios.create({
   baseURL: 'https://app.ticketmaster.com/discovery/v2/',
   params: {
     apikey: 'EWGWF2UdExHGw0D6tj4sW6ARGH8R6i7m',
   },
-});
+})
 
-export default class EventApi {
+class EventApi {
   #page = 1;
-  countryCode;
+  countryCode = '';
 
   set page(page) {
     this.#page = page;
@@ -19,6 +19,10 @@ export default class EventApi {
     return this.#page;
   }
 
+  resetCountryCode() {
+    this.countryCode = '';
+  }
+
   fetchEvents(value, countryCode) {
     this.value = value ?? this.value;
     this.countryCode = countryCode ?? this.countryCode;
@@ -26,22 +30,18 @@ export default class EventApi {
       params: {
         keyword: this.value,
         page: this.#page - 1,
-        // countryCode: this.countryCode,
+        countryCode: this.countryCode,
       },
     };
     return eventAxios.get('events.json', config);
   }
 
   fetchEvent(id) {
-    const config = {
-      params: {
-        id,
-      },
-    };
-    return eventAxios.get(`events/${id}.json`, config);
+    return eventAxios.get(`events/${id}.json`);
   }
 }
 
-// const eventApi = new EventApi();
+export const eventApi = new EventApi();
+
 // eventApi.fetchEvents('cat').then(console.log).catch(console.log)
 // eventApi.fetchEvent('vvG1iZ95K_3K3Z').then(console.log).catch(console.log)

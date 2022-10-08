@@ -1,0 +1,212 @@
+button {
+  cursor: pointer;
+  border: none;
+}
+.button-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  color: var(--black-color);
+  background-color: var(--yellow-btn-bg-hover-cl);
+  border: 50px solid black;
+  border-radius: 50%;
+
+  &__icon {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--border-btn-cl);
+  }
+}
+.modal {
+  padding-top: 480px;
+
+  // Main container
+
+  &__container {
+    // position: absolute;
+    margin: 0 auto;
+    background: #fff2fd;
+    outline: 1px solid red;
+    @include mb(mob-only) {
+      padding-left: 16px;
+      padding-right: 21px;
+      width: 280px;
+      border-radius: 150px 0px;
+    }
+    @include mb(tab) {
+      padding-left: 87px;
+      padding-right: 49px;
+      width: 704px;
+      border-radius: 300px 0px;
+    }
+    @include mb(desk) {
+      padding-left: 66px;
+      padding-right: 82px;
+      width: 1034px;
+    }
+  }
+
+  //header of modal
+  &__header {
+    display: flex;
+    justify-content: center;
+
+    @include mb(mob-only) {
+      padding-top: 80px;
+      padding-bottom: 20px;
+    }
+    @include mb(tab) {
+      padding-top: 32px;
+      padding-bottom: 40px;
+    }
+    @include mb(desk) {
+      padding-top: 43px;
+      padding-bottom: 40px;
+    }
+  }
+  &__img {
+    display: flex;
+    @include mb(mob-only) {
+      width: 102px;
+      height: 102px;
+      object-fit: cover;
+      border-radius: 50px 0px;
+    }
+    @include mb(tab) {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+    }
+    @include mb(desk) {
+      width: 132px;
+      height: 132px;
+      object-fit: cover;
+      border-radius: 100px;
+    }
+  }
+
+  //in modal part, where BIG IMG and text nearby
+
+  &__mainPart {
+    display: flex;
+    justify-content: center;
+
+    @include mb(tab) {
+      padding-bottom: 16px;
+    }
+    @include mb(desk) {
+      gap: 32px;
+    }
+  }
+
+  &__imgBig {
+    object-fit: cover;
+    @include mb(mob-only) {
+      display: none;
+    }
+    @include mb(tab) {
+      max-width: 249px;
+      height: 217px;
+    }
+    @include mb(desk) {
+      max-width: 427px;
+      height: 326px;
+    }
+  }
+
+  &__right-text {
+    min-width: 427px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // title and text in modal
+
+  &__title {
+    color: #dc56c5;
+    font-weight: 600;
+    @include mb(mob-only) {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    @include mb(desk) {
+      padding-bottom: 7px;
+      font-size: 24px;
+      line-height: 1.208;
+    }
+  }
+  &__text {
+    font-weight: 400;
+    color: #0e0e0e;
+    @include mb(mob-only) {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    @include mb(desk) {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+  }
+
+  //part of modal where you can find prices
+
+  &__priceSection {
+    margin-top: 20px;
+  }
+
+  &__priceAndBtn {
+    display: flex;
+    gap: 60px;
+  }
+
+  //buttons in modal
+
+  &__buyTicketsBtn {
+    padding-top: 20px;
+  }
+  &__btnBlue {
+    width: 145px;
+    height: 40px;
+    background: #4c00fe;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #ffffff;
+  }
+  &__lastBtn {
+    padding-top: 60px;
+    padding-bottom: 65px;
+    display: flex;
+    justify-content: center;
+    outline: none;
+  }
+
+  &__btnAuthor {
+    border: 1px solid #4c00fe;
+    background: #fff2fd;
+
+    color: #4c00fe;
+
+    border-radius: 5px;
+    width: 255px;
+    height: 40px;
+  }
+}

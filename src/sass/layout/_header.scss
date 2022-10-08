@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   max-width: 1280px;
   padding-top: 40px;
 
@@ -179,4 +180,47 @@
   &:focus {
     box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.8);
   }
+}
+
+.header__logo-bg-wrapper {
+  --width: 180px;
+  --height: 214px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--width) / 2);
+  height: calc(var(--height) / 2);
+  overflow: hidden;
+
+  @include mb('tab') {
+    --width: 359px;
+    --height: 302px;
+  }
+
+  @include mb('desk') {
+    --width: 458px;
+    --height: 386px;
+  }
+}
+
+.header__logo-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    136.07deg,
+    rgba(196, 196, 196, 0.03) 10.75%,
+    rgba(196, 196, 196, 0) 92.33%
+  );
+  backdrop-filter: blur(15px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: var(--width);
+  height: var(--height);
+}
+
+.header__logo {
+  position: absolute;
+  top: 41px;
+  left: $padding-container-desk;
 }
