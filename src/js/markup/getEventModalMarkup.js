@@ -1,12 +1,19 @@
 export function getEventModalMarkup(data) {
-  const { id } = data;
+  const { name, images, info, dates, promoter, products } = data;
+  const imgUrl = images[1].url;
   console.log(data);
-  console.log(data.data.images[1].url);
+  const localDate = dates.start.localDate;
+  const localTime = dates.start.localTime;
+  const timezone = dates.timezone;
+  // const productsName = products[0].name;
+
+  // const getEvents = res => res.data['_embedded']['events'];
+
   return `
   <div class="modal__header">
       <img
         class="modal__img"
-        src="${data.data.images[1].url}"
+        src="${imgUrl}"
         alt="The Black Eyed Peas"
         height="132px"
       />
@@ -15,7 +22,7 @@ export function getEventModalMarkup(data) {
       <div class="modal__big-img">
         <img
           class="modal__imgBig"
-          src="${data.data.images[1].url}"
+          src="${imgUrl}"
           alt="The Black Eyed Peas"
           height="326px"
         />
@@ -23,21 +30,21 @@ export function getEventModalMarkup(data) {
       <div class="modal__right-text">
         <div>
           <h2 class="modal__title">INFO</h2>
-          <p class="modal__text">${data.data.info}</p>
+          <p class="modal__text">${info}</p>
         </div>
         <div>
           <h2 class="modal__title">WHEN</h2>
-          <p class="modal__text">${data.data.dates.start.localDate} ${data.data.dates.start.localTime} (${data.data.dates.timezone})</p>
+          <p class="modal__text">${localDate} ${localTime} (${timezone})</p>
         </div>
         <div>
           <h2 class="modal__title">WHERE</h2>
-          <p class="modal__text">${data.data.promoter.description} ${data.data.products[0].name}</p>
+          <p class="modal__text">${promoter} ${promoter}</p>
         </div>
       </div>
     </div>
     <div class="modal__bottomText">
       <h2 class="modal__title">WHO</h2>
-      <p class="modal__text">${data.data.name}</p>
+      <p class="modal__text">${name}</p>
       <div class="modal__priceSection">
         <h2 class="modal__title">PRICES</h2>
         <div class="modal__priceAndBtn">

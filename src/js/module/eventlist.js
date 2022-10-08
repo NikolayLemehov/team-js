@@ -1,17 +1,25 @@
 import { toggleModal, renderModal } from './modal';
 import { eventApi } from '../api/EventApi';
 
-const imgLink = document.querySelector('.card__item a');
+const cardListRef = document.querySelector('.card-list');
 
-imgLink.classList.add('activeCard');
-
-imgLink.addEventListener('click', e => {
+cardListRef.addEventListener('click', e => {
+  console.log(e.target);
   e.preventDefault();
-  eventApi
-    .fetchEvent('vvG1iZ95K_3K3Z')
-    .then(data => {
-      renderModal(data);
-      toggleModal();
-    })
-    .catch(console.log);
+
+  //есть ли родительский класс .card_item
+  const cardItem = e.target.closest('.card__item');
+
+  if (!cardItem) return;
+  const id = cardItem.dataset.id;
+
+  console.log(id);
+
+  eventApi.fetchEvent(id).then(res => {
+    renderModal(res.data);
+    toggleModal();
+  });
+  // .catch(function () {
+  // console.log('heyerro');
+  // });
 });
