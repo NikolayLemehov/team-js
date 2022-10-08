@@ -1,16 +1,11 @@
 import { getPaginationMarkup } from '../markup/getPaginationMarkup';
-import {pagination, Pagination} from './Pagination.class';
+import {pagination} from './Pagination.class';
 import { eventApi } from '../api/EventApi';
 import { removeChildren } from '../utils/removeChildren';
 import {renderEventList} from "./renderEventList";
 import {getEvents} from "../selectors/getEvents";
 
 const paginationBoxRef = document.querySelector('.pagination-box');
-
-// const pagination = new Pagination();
-// pagination.total = 11;
-// const data = pagination.change(1);
-// renderPagination(data);
 
 paginationBoxRef.addEventListener('click', onPaginationBoxClick);
 

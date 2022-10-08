@@ -1,6 +1,6 @@
 import {eventApi} from '../api/EventApi';
 import {renderEventList} from "./renderEventList";
-import {getEvents, getTotalPages} from "../selectors/getEvents";
+import {getEvents} from "../selectors/getEvents";
 import {countries} from "../variables/countries";
 import {pagination} from "./Pagination.class";
 import {renderPagination} from "./pagination";
