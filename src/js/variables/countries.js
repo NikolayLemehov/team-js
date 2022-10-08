@@ -1,254 +1,252 @@
 export const countries = [
   {
-    code: 'US', name: '(United States Of America)'
+    code: 'US', name: 'United States Of America'
   },
   {
-    code: 'AD', name: '(Andorra)'
+    code: 'AD', name: 'Andorra'
   },
   {
-    code: 'AI', name: '(Anguilla)'
+    code: 'AI', name: 'Anguilla'
   },
   {
-    code: 'AR', name: '(Argentina)'
+    code: 'AR', name: 'Argentina'
   },
   {
-    code: 'AU', name: '(Australia)'
+    code: 'AU', name: 'Australia'
   },
   {
-    code: 'AT', name: '(Austria)'
+    code: 'AT', name: 'Austria'
   },
   {
-    code: 'AZ', name: '(Azerbaijan)'
+    code: 'AZ', name: 'Azerbaijan'
   },
   {
-    code: 'BS', name: '(Bahamas)'
+    code: 'BS', name: 'Bahamas'
   },
   {
-    code: 'BH', name: '(Bahrain)'
+    code: 'BH', name: 'Bahrain'
   },
   {
-    code: 'BB', name: '(Barbados)'
+    code: 'BB', name: 'Barbados'
   },
   {
-    code: 'BE', name: '(Belgium)'
+    code: 'BE', name: 'Belgium'
   },
   {
-    code: 'BM', name: '(Bermuda)'
+    code: 'BM', name: 'Bermuda'
   },
   {
-    code: 'BR', name: '(Brazil)'
+    code: 'BR', name: 'Brazil'
   },
   {
-    code: 'BG', name: '(Bulgaria)'
+    code: 'BG', name: 'Bulgaria'
   },
   {
-    code: 'CA', name: '(Canada)'
+    code: 'CA', name: 'Canada'
   },
   {
-    code: 'CL', name: '(Chile)'
+    code: 'CL', name: 'Chile'
   },
   {
-    code: 'CN', name: '(China)'
+    code: 'CN', name: 'China'
   },
   {
-    code: 'CO', name: '(Colombia)'
+    code: 'CO', name: 'Colombia'
   },
   {
-    code: 'CR', name: '(Costa Rica)'
+    code: 'CR', name: 'Costa Rica'
   },
   {
-    code: 'HR', name: '(Croatia)'
+    code: 'HR', name: 'Croatia'
   },
   {
-    code: 'CY', name: '(Cyprus)'
+    code: 'CY', name: 'Cyprus'
   },
   {
-    code: 'CZ', name: '(Czech Republic)'
+    code: 'CZ', name: 'Czech Republic'
   },
   {
-    code: 'DK', name: '(Denmark)'
+    code: 'DK', name: 'Denmark'
   },
   {
-    code: 'DO', name: '(Dominican Republic)'
+    code: 'DO', name: 'Dominican Republic'
   },
   {
-    code: 'EC', name: '(Ecuador)'
+    code: 'EC', name: 'Ecuador'
   },
   {
-    code: 'EE', name: '(Estonia)'
+    code: 'EE', name: 'Estonia'
   },
   {
-    code: 'FO', name: '(Faroe Islands)'
+    code: 'FO', name: 'Faroe Islands'
   },
   {
-    code: 'FI', name: '(Finland)'
+    code: 'FI', name: 'Finland'
   },
   {
-    code: 'FR', name: '(France)'
+    code: 'FR', name: 'France'
   },
   {
-    code: 'GE', name: '(Georgia)'
+    code: 'GE', name: 'Georgia'
   },
   {
-    code: 'DE', name: '(Germany)'
+    code: 'DE', name: 'Germany'
   },
   {
-    code: 'GH', name: '(Ghana)'
+    code: 'GH', name: 'Ghana'
   },
   {
-    code: 'GI', name: '(Gibraltar)'
+    code: 'GI', name: 'Gibraltar'
   },
   {
-    code: 'GB', name: '(Great Britain)'
+    code: 'GB', name: 'Great Britain'
   },
   {
-    code: 'GR', name: '(Greece)'
+    code: 'GR', name: 'Greece'
   },
   {
-    code: 'HK', name: '(Hong Kong)'
+    code: 'HK', name: 'Hong Kong'
   },
   {
-    code: 'HU', name: '(Hungary)'
+    code: 'HU', name: 'Hungary'
   },
   {
-    code: 'IS', name: '(Iceland)'
+    code: 'IS', name: 'Iceland'
   },
   {
-    code: 'IN', name: '(India)'
+    code: 'IN', name: 'India'
   },
   {
-    code: 'IE', name: '(Ireland)'
+    code: 'IE', name: 'Ireland'
   },
   {
-    code: 'IL', name: '(Israel)'
+    code: 'IL', name: 'Israel'
   },
   {
-    code: 'IT', name: '(Italy)'
+    code: 'IT', name: 'Italy'
   },
   {
-    code: 'JM', name: '(Jamaica)'
+    code: 'JM', name: 'Jamaica'
   },
   {
-    code: 'JP', name: '(Japan)'
+    code: 'JP', name: 'Japan'
   },
   {
-    code: 'KR', name: '(Korea, Republic of)'
+    code: 'KR', name: 'Korea, Republic of'
   },
   {
-    code: 'LV', name: '(Latvia)'
+    code: 'LV', name: 'Latvia'
   },
   {
-    code: 'LB', name: '(Lebanon)'
+    code: 'LB', name: 'Lebanon'
   },
   {
-    code: 'LT', name: '(Lithuania)'
+    code: 'LT', name: 'Lithuania'
   },
   {
-    code: 'LU', name: '(Luxembourg)'
+    code: 'LU', name: 'Luxembourg'
   },
   {
-    code: 'MY', name: '(Malaysia)'
+    code: 'MY', name: 'Malaysia'
   },
   {
-    code: 'MT', name: '(Malta)'
+    code: 'MT', name: 'Malta'
   },
   {
-    code: 'MX', name: '(Mexico)'
+    code: 'MX', name: 'Mexico'
   },
   {
-    code: 'MC', name: '(Monaco)'
+    code: 'MC', name: 'Monaco'
   },
   {
-    code: 'ME', name: '(Montenegro)'
+    code: 'ME', name: 'Montenegro'
   },
   {
-    code: 'MA', name: '(Morocco)'
+    code: 'MA', name: 'Morocco'
   },
   {
-    code: 'NL', name: '(Netherlands)'
+    code: 'NL', name: 'Netherlands'
   },
   {
-    code: 'AN', name: '(Netherlands Antilles)'
+    code: 'AN', name: 'Netherlands Antilles'
   },
   {
-    code: 'NZ', name: '(New Zealand)'
+    code: 'NZ', name: 'New Zealand'
   },
   {
-    code: 'ND', name: '(Northern Ireland)'
+    code: 'ND', name: 'Northern Ireland'
   },
   {
-    code: 'NO', name: '(Norway)'
+    code: 'NO', name: 'Norway'
   },
   {
-    code: 'PE', name: '(Peru)'
+    code: 'PE', name: 'Peru'
   },
   {
-    code: 'PL', name: '(Poland)'
+    code: 'PL', name: 'Poland'
   },
   {
-    code: 'PT', name: '(Portugal)'
+    code: 'PT', name: 'Portugal'
   },
   {
-    code: 'RO', name: '(Romania)'
+    code: 'RO', name: 'Romania'
   },
   {
-    code: 'RU', name: '(Russian Federation)'
+    code: 'RU', name: 'Russian Federation'
   },
   {
-    code: 'LC', name: '(Saint Lucia)'
+    code: 'LC', name: 'Saint Lucia'
   },
   {
-    code: 'SA', name: '(Saudi Arabia)'
+    code: 'SA', name: 'Saudi Arabia'
   },
   {
-    code: 'RS', name: '(Serbia)'
+    code: 'RS', name: 'Serbia'
   },
   {
-    code: 'SG', name: '(Singapore)'
+    code: 'SG', name: 'Singapore'
   },
   {
-    code: 'SK', name: '(Slovakia)'
+    code: 'SK', name: 'Slovakia'
   },
   {
-    code: 'SI', name: '(Slovenia)'
+    code: 'SI', name: 'Slovenia'
   },
   {
-    code: 'ZA', name: '(South Africa)'
+    code: 'ZA', name: 'South Africa'
   },
   {
-    code: 'ES', name: '(Spain)'
+    code: 'ES', name: 'Spain'
   },
   {
-    code: 'SE', name: '(Sweden)'
+    code: 'SE', name: 'Sweden'
   },
   {
-    code: 'CH', name: '(Switzerland)'
+    code: 'CH', name: 'Switzerland'
   },
   {
-    code: 'TW', name: '(Taiwan)'
+    code: 'TW', name: 'Taiwan'
   },
   {
-    code: 'TH', name: '(Thailand)'
+    code: 'TH', name: 'Thailand'
   },
   {
-    code: 'TT', name: '(Trinidad and Tobago)'
+    code: 'TT', name: 'Trinidad and Tobago'
   },
   {
-    code: 'TR', name: '(Turkey)'
+    code: 'TR', name: 'Turkey'
   },
   {
-    code: 'UA', name: '(Ukraine)'
+    code: 'UA', name: 'Ukraine'
   },
   {
-    code: 'AE', name: '(United Arab Emirates)'
+    code: 'AE', name: 'United Arab Emirates'
 
   },
   {
-    code: 'UY', name: '(Uruguay)'
+    code: 'UY', name: 'Uruguay'
   },
   {
-    code: 'VE', name: '(Venezuela)'
+    code: 'VE', name: 'Venezuela'
   }
 ]
-
-console.log(countries.length)
