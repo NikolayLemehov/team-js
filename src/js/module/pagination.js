@@ -1,48 +1,25 @@
-class Pagination {
-  #near = 2;
-  #age = 1;
+import { getPaginationMarkup } from '../markup/getPaginationMarkup';
+import { Pagination } from './Pagination.class';
+import { eventApi } from '../api/EventApi';
+import { removeChildren } from '../utils/removeChildren';
 
-  constructor(total, current) {
-    this.total = total;
-  }
+const paginationBoxRef = document.querySelector('.pagination-box');
+console.log('paginationBoxRef', paginationBoxRef);
+const pagination = new Pagination(11);
+const data = pagination.change(1);
+renderPagination(data);
 
-  change(num) {
-    const arr = []
+paginationBoxRef.addEventListener('click', onPadinationBoxClick);
 
-    let min = num - this.#near
-    min = min < 1 ? 1 : min;
-
-    let max = num + this.#near
-    max = max > this.total ? this.total : max;
-
-    for (let i = min; i <= max; i++) {
-      arr.push(i)
-    }
-
-    if (min > this.#age + 2) {
-      arr.unshift('...')
-      for (let i = this.#age; i > 0; i--) {
-        arr.unshift(i);
-      }
-    } else {
-      for (let i = min - 1; i > 0; i--) {
-        arr.unshift(i);
-      }
-    }
-
-    if (max < this.total - this.#age - 1) {
-      arr.push('...')
-      for (let i = this.total - this.#age + 1; i <= this.total; i++) {
-        arr.push(i);
-      }
-    } else {
-      for (let i = max + 1; i <= this.total; i++) {
-        arr.push(i);
-      }
-    }
-    console.log(arr)
-  }
+async function onPadinationBoxClick(e) {
+  if (!e.target.dataset.btn) return;
+  eventApi.page = Number(e.target.dataset.btn);
+  await eventApi.fetchEvents();
+  const data = pagination.change(eventApi.page);
+  renderPagination(data);
 }
 
-const pagination = new Pagination(11)
-pagination.change(1)
+function renderPagination(data) {
+  removeChildren(paginationBoxRef);
+  paginationBoxRef.insertAdjacentHTML('afterbegin', getPaginationMarkup(data));
+}
