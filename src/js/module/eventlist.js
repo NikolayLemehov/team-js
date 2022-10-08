@@ -4,7 +4,6 @@ import { eventApi } from '../api/EventApi';
 const cardListRef = document.querySelector('.card-list');
 
 cardListRef.addEventListener('click', e => {
-  console.log(e.target);
   e.preventDefault();
 
   //есть ли родительский класс .card_item
@@ -12,8 +11,6 @@ cardListRef.addEventListener('click', e => {
 
   if (!cardItem) return;
   const id = cardItem.dataset.id;
-
-  console.log(id);
 
   eventApi.fetchEvent(id).then(res => {
     renderModal(res.data);

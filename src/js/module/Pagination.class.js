@@ -49,7 +49,8 @@ export class Pagination {
         arr.push({ value: i, isCurrent, isBtn: true });
       }
     }
-
     return arr;
   }
 }
+
+export const pagination = new Pagination();

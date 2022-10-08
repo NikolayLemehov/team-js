@@ -3,7 +3,6 @@ import {eventApi} from '../api/EventApi';
 
 const DEBOUNCE_DELAY = 500;
 // const eventApi = new EventApi();
-console.log('eventApi', eventApi);
 
 const refs = {
   inputSearch: document.querySelector('.search__input'),
@@ -23,9 +22,7 @@ const refs = {
 
 function onInputSearch(event) {
   // event.preventDefault();
-  console.log(event.target.value);
   eventApi.page = event.target;
-  console.log('EventApi.page', eventApi.page);
 }
 
 export function getSearchCountryItemMarkup(data) {

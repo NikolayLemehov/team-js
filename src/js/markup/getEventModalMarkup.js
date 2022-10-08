@@ -1,7 +1,6 @@
 export function getEventModalMarkup(data) {
   const { name, images, info, dates, promoter, products } = data;
   const imgUrl = images[1].url;
-  console.log(data);
   const localDate = dates.start.localDate;
   const localTime = dates.start.localTime;
   const timezone = dates.timezone;

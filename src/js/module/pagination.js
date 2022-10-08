@@ -1,5 +1,5 @@
 import { getPaginationMarkup } from '../markup/getPaginationMarkup';
-import { Pagination } from './Pagination.class';
+import {pagination, Pagination} from './Pagination.class';
 import { eventApi } from '../api/EventApi';
 import { removeChildren } from '../utils/removeChildren';
 import {renderEventList} from "./renderEventList";
@@ -7,10 +7,10 @@ import {getEvents} from "../selectors/getEvents";
 
 const paginationBoxRef = document.querySelector('.pagination-box');
 
-const pagination = new Pagination();
-pagination.total = 11;
-const data = pagination.change(1);
-renderPagination(data);
+// const pagination = new Pagination();
+// pagination.total = 11;
+// const data = pagination.change(1);
+// renderPagination(data);
 
 paginationBoxRef.addEventListener('click', onPaginationBoxClick);
 
@@ -26,7 +26,7 @@ async function onPaginationBoxClick(e) {
   renderPagination(data);
 }
 
-function renderPagination(data) {
+export function renderPagination(data) {
   removeChildren(paginationBoxRef);
   paginationBoxRef.insertAdjacentHTML('afterbegin', getPaginationMarkup(data));
 }

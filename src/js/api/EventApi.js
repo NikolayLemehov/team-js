@@ -35,7 +35,7 @@ class EventApi {
     };
     const res = await eventAxios.get('events.json', config);
     this.total = res['data']['page']['totalPages'];
-    console.log(this.total)
+
     return res;
   }
 
