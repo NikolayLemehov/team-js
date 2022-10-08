@@ -2,7 +2,7 @@ export function getCardMarkup(data) {
   return `<li class="card__item" data-id="${data.id}">
           <a href="${data.url}" class="card__link">
             <div class="card__thumb">
-              <img src="${data.images[4].url}" alt="card">
+              <img src="${data.images[4].url}" alt="card" class="card__img">
             </div>
           </a>
           <div class="event__info">
