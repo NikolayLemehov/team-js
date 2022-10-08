@@ -9,7 +9,7 @@ const eventAxios = axios.create({
 
 class EventApi {
   #page = 1;
-  countryCode;
+  countryCode = '';
 
   set page(page) {
     this.#page = page;
@@ -19,6 +19,10 @@ class EventApi {
     return this.#page;
   }
 
+  resetCountryCode() {
+    this.countryCode = '';
+  }
+
   fetchEvents(value, countryCode) {
     this.value = value ?? this.value;
     this.countryCode = countryCode ?? this.countryCode;
@@ -26,19 +30,14 @@ class EventApi {
       params: {
         keyword: this.value,
         page: this.#page - 1,
-        // countryCode: this.countryCode,
+        countryCode: this.countryCode,
       },
     };
     return eventAxios.get('events.json', config);
   }
 
   fetchEvent(id) {
-    const config = {
-      params: {
-        id,
-      },
-    };
-    return eventAxios.get(`events/${id}.json`, config);
+    return eventAxios.get(`events/${id}.json`);
   }
 }
 
