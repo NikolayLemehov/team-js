@@ -1,8 +1,8 @@
 import debounce from 'lodash.debounce';
-import EventApi from '../api/EventApi';
+import {eventApi} from '../api/EventApi';
 
 const DEBOUNCE_DELAY = 500;
-const eventApi = new EventApi();
+// const eventApi = new EventApi();
 console.log('eventApi', eventApi);
 
 const refs = {
@@ -11,18 +11,18 @@ const refs = {
   addCard: document.querySelector('.card__add'),
 };
 
-refs.inputSearch.addEventListener(
-  'input',
-  debounce(onInputSearch, DEBOUNCE_DELAY)
-);
-
-refs.selectCountry.addEventListener(
-  'input',
-  debounce(onInputCountry, DEBOUNCE_DELAY)
-);
+// refs.inputSearch.addEventListener(
+//   'input',
+//   debounce(onInputSearch, DEBOUNCE_DELAY)
+// );
+//
+// refs.selectCountry.addEventListener(
+//   'input',
+//   debounce(onInputCountry, DEBOUNCE_DELAY)
+// );
 
 function onInputSearch(event) {
-  event.preventDefault();
+  // event.preventDefault();
   console.log(event.target.value);
   eventApi.page = event.target;
   console.log('EventApi.page', eventApi.page);

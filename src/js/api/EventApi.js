@@ -23,7 +23,7 @@ class EventApi {
     this.countryCode = '';
   }
 
-  fetchEvents(value, countryCode) {
+  async fetchEvents(value, countryCode) {
     this.value = value ?? this.value;
     this.countryCode = countryCode ?? this.countryCode;
     const config = {
@@ -33,7 +33,10 @@ class EventApi {
         countryCode: this.countryCode,
       },
     };
-    return eventAxios.get('events.json', config);
+    const res = await eventAxios.get('events.json', config);
+    this.total = res['data']['page']['totalPages'];
+    console.log(this.total)
+    return res;
   }
 
   fetchEvent(id) {

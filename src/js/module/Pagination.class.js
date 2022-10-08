@@ -1,9 +1,14 @@
 export class Pagination {
   #near = 2;
   #age = 1;
+  #total = null;
 
-  constructor(total, current) {
-    this.total = total;
+  set total(value) {
+    this.#total = value;
+  }
+
+  get total() {
+    return this.#total
   }
 
   change(num) {
@@ -13,7 +18,7 @@ export class Pagination {
     min = min < 1 ? 1 : min;
 
     let max = num + this.#near;
-    max = max > this.total ? this.total : max;
+    max = max > this.#total ? this.#total : max;
 
     for (let i = min; i <= max; i++) {
       const isCurrent = num === i;
@@ -33,18 +38,18 @@ export class Pagination {
       }
     }
 
-    if (max < this.total - this.#age - 1) {
+    if (max < this.#total - this.#age - 1) {
       arr.push({ value: '...', isCurrent: false, isBtn: false });
-      for (let i = this.total - this.#age + 1; i <= this.total; i++) {
+      for (let i = this.#total - this.#age + 1; i <= this.#total; i++) {
         arr.push({ value: i, isCurrent: false, isBtn: true });
       }
     } else {
-      for (let i = max + 1; i <= this.total; i++) {
+      for (let i = max + 1; i <= this.#total; i++) {
         const isCurrent = num === i;
         arr.push({ value: i, isCurrent, isBtn: true });
       }
     }
-    console.log(arr);
+
     return arr;
   }
 }
