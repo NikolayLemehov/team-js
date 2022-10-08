@@ -1,3 +1,7 @@
+.gallery {
+  background-color: #0E0E0E;
+  background-image: url(../images/main-bg/noise-body.svg);
+}
 .card-list {
   display: flex;
   flex-wrap: wrap;
@@ -70,31 +74,42 @@
   position: absolute;
     overflow: hidden;
     top: 9px;
+    object-fit: cover;
   
     max-width: 120px;
-    min-height: 120px;
+    max-height: 120px;
   
     border-radius: 50px 0px;
+
+    transition: box-shadow $transition, transform $transition;
   
     @media screen and (min-width: 768px) {
       max-width: 141px;
-      min-height: 120px;
+      max-height: 120px;
   
       top: 10px;
     }
   
     @media screen and (min-width: 1280px) {
       max-width: 267px;
-      min-height: 220px;
+     max-height: 220px;
   
       top: 19px;
     }
+
+        &:hover,
+        &:focus {
+          transform: translate(10px, -10px);
+          box-shadow: 0px 0px 35px rgba(235, 58, 205, 0.8);;
+        }
 }
 
 .event__info {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 4px;
 
   margin-top: 8px;
@@ -106,13 +121,21 @@
 }
 
 .event__artist {
+  font-weight: 700;
   font-size: 14px;
   line-height: 1.21;
   color: #DC56C5;
 
+  transition: text-shadow $transition;
+
   @include mb(tab) {
     font-size: 16px;
     line-height: 1.25;
+  }
+
+  &:hover,
+  &:focus {
+    text-shadow: 0 0 15px rgb(198, 21, 92);
   }
 }
 
@@ -151,4 +174,8 @@
     width: 8px;
     height: 10px;
   }
+}
+
+.card__img {
+  object-fit: cover;
 }
