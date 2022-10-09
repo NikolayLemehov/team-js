@@ -7,8 +7,8 @@ const refs = {
   modal: document.querySelector('[data-modal]'),
   modalContent: document.querySelector('.modal__content'),
 };
-// refs.openModalBtns.forEach(btn => btn.addEventListener('click', toggleModal));
-refs.closeModalBtn.addEventListener('click', toggleModal);
+
+refs.closeModalBtn.addEventListener('click', removeEscListener);
 
 export function toggleModal() {
   refs.modal.classList.toggle('visually-hidden');
@@ -17,4 +17,31 @@ export function toggleModal() {
 export function renderModal(data) {
   removeChildren(refs.modalContent);
   refs.modalContent.insertAdjacentHTML('afterbegin', getEventModalMarkup(data));
+}
+
+//closes with ESC button
+export function onEscKeyPress(event) {
+  if (event.code === 'Escape') {
+    removeEscListener();
+  }
+}
+
+//remove listener when modal is close and change class to close modal
+function removeEscListener() {
+  toggleModal();
+  window.removeEventListener('keydown', onEscKeyPress);
+}
+
+//close modal window with click in some place where no modal window
+
+refs.modal.addEventListener('click', onBackdropClick);
+
+function onBackdropClick(event) {
+  // console.log('click');
+
+  // console.log(event.currentTarget);
+  // console.log(event.target);
+  if (event.currentTarget === event.target) {
+    toggleModal();
+  }
 }
