@@ -1,5 +1,5 @@
 export class Pagination {
-  #near = 2;
+  #near = 4;
   #age = 1;
 
   constructor(total, current) {

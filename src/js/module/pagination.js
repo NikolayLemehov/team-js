@@ -3,7 +3,7 @@ import { Pagination } from './Pagination.class';
 import { eventApi } from '../api/EventApi';
 import { removeChildren } from '../utils/removeChildren';
 
-const paginationBoxRef = document.querySelector('.pagination-box');
+const paginationBoxRef = document.querySelector('.pagination-box__list');
 console.log('paginationBoxRef', paginationBoxRef);
 const pagination = new Pagination(11);
 const data = pagination.change(1);

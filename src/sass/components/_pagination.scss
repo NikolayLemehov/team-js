@@ -1,0 +1,25 @@
+@import '../utils/vars';
+
+.pagination-box {
+  display: flex;
+  justify-content: center;
+}
+.pagination-box__list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.pagination__btn {
+  background-color: transparent;
+  color: $color-white;
+}
+.pagination__btn--currnt {
+  color: $color-acent;
+  border: 1px solid $color-acent;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 30px;
+  height: 30px;
+}
