@@ -23,5 +23,5 @@ async function onPaginationBoxClick(e) {
 
 export function renderPagination(data) {
   removeChildren(paginationBoxRef);
-  paginationBoxRef.insertAdjacentHTML('afterbegin', getPaginationMarkup(data));
+  paginationBoxRef.insertAdjacentHTML('beforeend', getPaginationMarkup(data));
 }
