@@ -1,4 +1,4 @@
-import { toggleModal, renderModal } from './modal';
+import { toggleModal, renderModal, onEscKeyPress } from './modal';
 import { eventApi } from '../api/EventApi';
 
 const cardListRef = document.querySelector('.card-list');
@@ -8,15 +8,23 @@ cardListRef.addEventListener('click', e => {
 
   //есть ли родительский класс .card_item
   const cardItem = e.target.closest('.card__item');
-
   if (!cardItem) return;
+
   const id = cardItem.dataset.id;
 
-  eventApi.fetchEvent(id).then(res => {
-    renderModal(res.data);
-    toggleModal();
-  });
-  // .catch(function () {
-  // console.log('heyerro');
-  // });
+  console.log('id');
+
+  console.log(id);
+  window.addEventListener('keydown', onEscKeyPress);
+
+  eventApi
+    .fetchEvent(id)
+    .then(res => {
+      renderModal(res.data);
+      toggleModal();
+      onEscKeyPress;
+    })
+    .catch(function () {
+      console.log('heyerro');
+    });
 });
