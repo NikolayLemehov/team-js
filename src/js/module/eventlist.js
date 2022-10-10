@@ -1,7 +1,7 @@
 import { toggleModal, renderModal, onEscKeyPress } from './modal';
 import { eventApi } from '../api/EventApi';
 
-const cardListRef = document.querySelector('.card-list');
+const cardListRef = document.querySelector('.card__list');
 
 cardListRef.addEventListener('click', e => {
   e.preventDefault();
