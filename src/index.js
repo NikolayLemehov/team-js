@@ -3,4 +3,9 @@ import './js/module/pagination';
 import './js/module/searchForm';
 import {renderEventsWithPagination} from "./js/module/renderEventsWithPagination";
 
-renderEventsWithPagination().catch(console.log)
+const startLoading = () => console.log('start loading');
+const stopLoading = () => console.log('stop loading');
+
+const renderData = {startLoading, stopLoading}
+
+renderEventsWithPagination(renderData).catch(console.log)

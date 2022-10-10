@@ -2,7 +2,7 @@ export class Pagination {
   #maxTotal = 49;
   #near = 4;
   #age = 1;
-  #total = null;
+  #total = 0;
 
   set total(value) {
     this.#total = value < this.#maxTotal ? value : this.#maxTotal;
@@ -50,7 +50,8 @@ export class Pagination {
         arr.push({ value: i, isCurrent, isBtn: true });
       }
     }
-    return arr;
+
+    return arr.length > 1 ? arr : [];
   }
 }
 

@@ -19,10 +19,6 @@ class EventApi {
     return this.#page;
   }
 
-  resetCountryCode() {
-    this.countryCode = '';
-  }
-
   async fetchEvents(value, countryCode) {
     this.value = value ?? this.value;
     this.countryCode = countryCode ?? this.countryCode;

@@ -1,10 +1,11 @@
 @import '../utils/vars';
 
-.pagination-box {
+.gallery__pagination {
   display: flex;
   justify-content: center;
 }
-.pagination-box__list {
+
+.pagination {
   list-style: none;
   display: flex;
   gap: 25px;
@@ -15,7 +16,7 @@
   background-color: transparent;
   color: $color-white;
 }
-.pagination__btn--currnt {
+.pagination__btn--current {
   color: $color-pink;
   border: 1px solid $color-pink;
   border-top-left-radius: 10px;

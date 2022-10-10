@@ -1,9 +1,5 @@
-import {eventApi} from '../api/EventApi';
-import {renderEventList} from "./renderEventList";
-import {getEvents} from "../selectors/getEvents";
 import {countries} from "../variables/countries";
-import {pagination} from "./Pagination.class";
-import {renderPagination} from "./pagination";
+import { renderEventsWithPagination } from './renderEventsWithPagination';
 
 const formRef = document.querySelector('.search__form');
 const selectRef = formRef.querySelector('select');
@@ -16,14 +12,16 @@ async function onFormSubmit(e) {
 
   const {searchValue, countryCode} = e.target.elements
 
-  const res = await eventApi.fetchEvents(searchValue.value, countryCode.value).catch(console.log)
-  renderEventList(getEvents(res))
+  const startLoading = () => console.log('start form loading');
+  const stopLoading = () => console.log('stop form loading');
 
-  if (eventApi.total > 1) {
-    pagination.total = eventApi.total;
-    const data = pagination.change(1);
-    renderPagination(data);
+  const renderData = {
+    value: searchValue.value,
+    countryCode: countryCode.value,
+    startLoading,
+    stopLoading
   }
+  renderEventsWithPagination(renderData).catch(console.log)
 }
 
 function renderOptions(arr) {

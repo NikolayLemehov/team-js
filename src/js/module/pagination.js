@@ -4,21 +4,33 @@ import { eventApi } from '../api/EventApi';
 import { removeChildren } from '../utils/removeChildren';
 import { renderEventList } from './renderEventList';
 import { getEvents } from '../selectors/getEvents';
+import { renderEventsWithPagination } from './renderEventsWithPagination';
 
-const paginationBoxRef = document.querySelector('.pagination-box__list');
+const paginationBoxRef = document.querySelector('.pagination');
 
 paginationBoxRef.addEventListener('click', onPaginationBoxClick);
 
 async function onPaginationBoxClick(e) {
-  if (!e.target.dataset.btn) return;
+  const clickedEl = e.target;
+  if (!clickedEl.dataset.btn) return;
+  if (clickedEl.classList.contains('pagination__btn--current')) return;
 
-  eventApi.page = Number(e.target.dataset.btn);
+  eventApi.page = Number(clickedEl.dataset.btn);
 
-  const res = await eventApi.fetchEvents().catch(console.log);
-  const data = pagination.change(eventApi.page);
+  const startLoading = () => {
+    clickedEl.classList.add('clicked');
+    paginationBoxRef.classList.add('loading');
+  };
+  const stopLoading = () => {
+    paginationBoxRef.classList.remove('loading');
+  }
 
-  renderEventList(getEvents(res));
-  renderPagination(data);
+  const renderData = {
+    page: eventApi.page,
+    startLoading,
+    stopLoading,
+  }
+  renderEventsWithPagination(renderData).catch(console.log)
 }
 
 export function renderPagination(data) {
