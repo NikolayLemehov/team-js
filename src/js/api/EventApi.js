@@ -9,6 +9,7 @@ const eventAxios = axios.create({
 
 class EventApi {
   #page = 1;
+  #size = 16;
   countryCode = '';
 
   set page(page) {
@@ -27,6 +28,7 @@ class EventApi {
         keyword: this.value,
         page: this.#page - 1,
         countryCode: this.countryCode,
+        size: this.#size,
       },
     };
     const res = await eventAxios.get('events.json', config);
