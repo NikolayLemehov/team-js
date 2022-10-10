@@ -1,10 +1,11 @@
 export class Pagination {
-  #near = 4;
-  #age = 1;
+  #maxTotal = 49;
+  #near = 1;
+  #age = 5;
   #total = null;
 
   set total(value) {
-    this.#total = value;
+    this.#total = value < this.#maxTotal ? value : this.#maxTotal;
   }
 
   get total() {
