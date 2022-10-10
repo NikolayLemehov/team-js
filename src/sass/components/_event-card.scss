@@ -2,6 +2,99 @@
   background-color: #0E0E0E;
   background-image: url(../images/main-bg/noise-body.svg);
 }
+
+.cards__bg {
+  position: relative;
+}
+
+.cards__bg-1 {
+  position: absolute;
+
+  @include mb(tab){
+    display: none;
+  }
+
+  @include mb(desk){
+    display: block;
+    top: 120;
+    left: 900;}
+  }
+  
+
+
+.cards__bg-2 {
+  position: absolute;
+
+  @include mb(tab){
+    display:none;
+  }
+  @include mb(desk){
+    display: block;
+    top: 884;
+    left: 14;
+  }
+ 
+  }
+  
+
+.cards__bg-3 {
+  position: absolute;
+
+  @include mb(tab) {
+      display: none;
+    }
+
+    @include mb(desk){
+display: block;
+top: 372;
+  left: -9;
+    }
+  
+}
+
+.cards__bg-4 {
+  position: absolute;
+
+  @include mb(tab) {
+      display: none;
+    }
+
+    @include mb(desk){
+      display: block;
+    top: 897;
+    left: 1041;
+    }
+}
+
+.cards__bg-5 {
+  position: absolute;
+
+  @include mb(tab){
+    display: block;
+    top: 195;
+    left: -10;
+  }
+
+  @include mb(desk){
+    display: none;
+  }
+}
+
+.cards__bg-6 {
+  position: absolute;
+
+  @include mb(tab) {
+    display: block;
+    top: 510;
+    left: 473px;
+  }
+
+  @include mb(desk) {
+    display: none;
+  }
+}
+
+
 .card-list {
   display: flex;
   flex-wrap: wrap;
