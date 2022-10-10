@@ -11,6 +11,7 @@ paginationBoxRef.addEventListener('click', onPaginationBoxClick);
 
 async function onPaginationBoxClick(e) {
   if (!e.target.dataset.btn) return;
+  if (e.target.classList.contains('pagination__btn--current')) return;
 
   eventApi.page = Number(e.target.dataset.btn);
 
