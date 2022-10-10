@@ -37,13 +37,13 @@ button {
   &__icon {
     width: 25px;
     height: 25px;
-    fill: #4c00fe;
+    fill: $color-han-purple;
     display: block;
   }
 
   &:hover,
   &:focus {
-    fill: #4c00fe;
+    fill: $color-han-purple;
     border-radius: 100%;
     border: 1px solid rgba(220, 86, 197, 0.3);
     box-shadow: 0 0 8px rgba(220, 86, 197, 0.3);
@@ -78,7 +78,7 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: auto 0;
-    background: #fff2fd;
+    background-color: $color-lavender-blush;
     outline: 1px solid red;
     @include mb(mob-only) {
       padding-left: 16px;
@@ -192,7 +192,7 @@ button {
     }
   }
   &__title {
-    color: #dc56c5;
+    color: $color-pink;
     font-weight: 600;
 
     @include mb(mob-only) {
@@ -215,7 +215,7 @@ button {
   }
   &__text {
     font-weight: 400;
-    color: #0e0e0e;
+    color: $color-black2;
     @include mb(mob-only) {
       font-size: 16px;
       line-height: 1.25;
@@ -233,7 +233,7 @@ button {
   }
   &__textMini {
     font-weight: 400;
-    color: #0e0e0e;
+    color: $color-black2;
     @include mb(mob-only) {
       font-size: 16px;
       line-height: 1.25;
@@ -282,12 +282,12 @@ button {
   &__btnBlue {
     width: 145px;
     height: 40px;
-    background: #4c00fe;
+    background: $color-han-purple;
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.25;
-    color: #ffffff;
+    color: $color-white;
   }
   &__lastBtn {
     padding-top: 60px;
@@ -301,10 +301,10 @@ button {
   }
 
   &__btnAuthor {
-    border: 1px solid #4c00fe;
-    background: #fff2fd;
+    border: 1px solid $color-han-purple;
+    background: $color-lavender-blush;
 
-    color: #4c00fe;
+    color: $color-han-purple;
 
     border-radius: 5px;
     width: 255px;

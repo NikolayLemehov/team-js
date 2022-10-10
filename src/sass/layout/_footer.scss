@@ -9,7 +9,7 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #939393;
+  color: $color-suva-grey;
 
   @include mb('tab') {
     font-size: 16px;

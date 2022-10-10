@@ -1,5 +1,5 @@
 .gallery {
-  background-color: #0E0E0E;
+  background-color: $color-black2;
   background-image: url(../images/main-bg/noise-body.svg);
 }
 
@@ -19,7 +19,7 @@
     top: 120;
     left: 900;}
   }
-  
+
 
 
 .cards__bg-2 {
@@ -33,9 +33,9 @@
     top: 884;
     left: 14;
   }
- 
+
   }
-  
+
 
 .cards__bg-3 {
   position: absolute;
@@ -49,7 +49,7 @@ display: block;
 top: 372;
   left: -9;
     }
-  
+
 }
 
 .cards__bg-4 {
@@ -110,7 +110,7 @@ top: 372;
   position: relative;
   flex-basis: calc(((100% - 20px))/ 2);
   min-height: 208px;
-  
+
   @include mb(tab) {
     flex-basis: calc((100% - 96px) / 4);
     min-height: 223px;
@@ -156,7 +156,7 @@ top: 372;
   max-width: 152px;
   min-height: 130px;
   }
-  
+
   @include mb(desk){
     max-width: 288px;
     min-height: 239px;
@@ -168,25 +168,25 @@ top: 372;
     overflow: hidden;
     top: 9px;
     object-fit: cover;
-  
+
     max-width: 120px;
     max-height: 120px;
-  
+
     border-radius: 50px 0px;
 
     transition: box-shadow $transition, transform $transition;
-  
+
     @media screen and (min-width: 768px) {
       max-width: 141px;
       max-height: 120px;
-  
+
       top: 10px;
     }
-  
+
     @media screen and (min-width: 1280px) {
       max-width: 267px;
      max-height: 220px;
-  
+
       top: 19px;
     }
 
@@ -217,7 +217,7 @@ top: 372;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.21;
-  color: #DC56C5;
+  color: $color-pink;
 
   transition: text-shadow $transition;
 
