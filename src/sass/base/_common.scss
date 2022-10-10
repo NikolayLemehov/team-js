@@ -9,6 +9,20 @@ body {
   font-size: 16px;
   color: $color-white;
   background-color: $color-black2;
+  background-image: url(../images/main-bg/noise-body.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto;
+
+  @include mb(tab){
+    background-image: url(../images/main-bg/bg_tab.svg);
+    background-position: top 364px center;
+  }
+
+  @include mb(desk){
+    background-image: url(../images/main-bg/bg_desk.svg);
+    background-position: bottom;
+  }
 }
 
 .visually-hidden {

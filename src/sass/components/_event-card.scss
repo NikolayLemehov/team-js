@@ -1,101 +1,16 @@
 .gallery {
-  background-color: $color-black2;
-  background-image: url(../images/main-bg/noise-body.svg);
-}
-
-.cards__bg {
-  position: relative;
-}
-
-.cards__bg-1 {
-  position: absolute;
+  overflow: hidden;
+  margin-top: -56px;
 
   @include mb(tab){
-    display: none;
-  }
-
-  @include mb(desk){
-    display: block;
-    top: 120;
-    left: 900;}
-  }
-
-
-
-.cards__bg-2 {
-  position: absolute;
-
-  @include mb(tab){
-    display:none;
+    margin-top: -90px;
   }
   @include mb(desk){
-    display: block;
-    top: 884;
-    left: 14;
-  }
-
-  }
-
-
-.cards__bg-3 {
-  position: absolute;
-
-  @include mb(tab) {
-      display: none;
-    }
-
-    @include mb(desk){
-display: block;
-top: 372;
-  left: -9;
-    }
-
-}
-
-.cards__bg-4 {
-  position: absolute;
-
-  @include mb(tab) {
-      display: none;
-    }
-
-    @include mb(desk){
-      display: block;
-    top: 897;
-    left: 1041;
-    }
-}
-
-.cards__bg-5 {
-  position: absolute;
-
-  @include mb(tab){
-    display: block;
-    top: 195;
-    left: -10;
-  }
-
-  @include mb(desk){
-    display: none;
+    margin-top: -76px;
   }
 }
 
-.cards__bg-6 {
-  position: absolute;
-
-  @include mb(tab) {
-    display: block;
-    top: 510;
-    left: 473px;
-  }
-
-  @include mb(desk) {
-    display: none;
-  }
-}
-
-
-.card-list {
+.card__list {
   display: flex;
   flex-wrap: wrap;
   gap: 32px 20px;
@@ -122,31 +37,6 @@ top: 372;
 
 }
 
-.card__link::before {
-  content: "";
-  display: block;
-
-  width: 102px;
-  height: 95px;
-  margin-left: 28px;
-
-  border: 1px solid rgba(220, 86, 197, 0.3);
-  border-radius: 50px 0px;
-
-  @include mb(tab) {
-    width: 120px;
-    height: 112px;
-    margin-left: 32px;
-  }
-
-  @include mb(desk) {
-    width: 227px;
-    height: 213px;
-    margin-left: 61px;
-  }
-
-}
-
 .card__link {
   display: block;
   max-width: 130px;
@@ -160,6 +50,30 @@ top: 372;
   @include mb(desk){
     max-width: 288px;
     min-height: 239px;
+  }
+
+  &::before {
+    content: "";
+      display: block;
+    
+      width: 102px;
+      height: 95px;
+      margin-left: 28px;
+    
+      border: 1px solid rgba(220, 86, 197, 0.3);
+      border-radius: 50px 0px;
+    
+      @include mb(tab) {
+        width: 120px;
+        height: 112px;
+        margin-left: 32px;
+      }
+    
+      @include mb(desk) {
+        width: 227px;
+        height: 213px;
+        margin-left: 61px;
+      }
   }
 }
 
@@ -193,17 +107,18 @@ top: 372;
         &:hover,
         &:focus {
           transform: translate(10px, -10px);
-          box-shadow: 0px 0px 35px rgba(235, 58, 205, 0.8);;
+          box-shadow: 0px 0px 35px rgba(235, 58, 205, 0.8);
         }
-}
+  }
 
-.event__info {
+.card__info {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 
   margin-top: 8px;
   text-align: center;
@@ -213,7 +128,7 @@ top: 372;
   }
 }
 
-.event__artist {
+.card__artist {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.21;
@@ -232,7 +147,7 @@ top: 372;
   }
 }
 
-.event__data {
+.card__data {
   font-size: 14px;
   line-height: 1.21;
 
@@ -242,7 +157,7 @@ top: 372;
   }
 }
 
-.event__address {
+.card__address {
   display: block;
 
   font-weight: 600;
@@ -257,7 +172,7 @@ top: 372;
   }
 }
 
-.event__icon {
+.card__icon {
   margin-right: 3px;
   fill: currentColor;
   width: 6px;
@@ -271,4 +186,5 @@ top: 372;
 
 .card__img {
   object-fit: cover;
+  width: 100%;
 }
