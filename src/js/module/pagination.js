@@ -1,11 +1,11 @@
 import { getPaginationMarkup } from '../markup/getPaginationMarkup';
-import {pagination} from './Pagination.class';
+import { pagination } from './Pagination.class';
 import { eventApi } from '../api/EventApi';
 import { removeChildren } from '../utils/removeChildren';
-import {renderEventList} from "./renderEventList";
-import {getEvents} from "../selectors/getEvents";
+import { renderEventList } from './renderEventList';
+import { getEvents } from '../selectors/getEvents';
 
-const paginationBoxRef = document.querySelector('.pagination-box');
+const paginationBoxRef = document.querySelector('.pagination-box__list');
 
 paginationBoxRef.addEventListener('click', onPaginationBoxClick);
 
@@ -17,7 +17,7 @@ async function onPaginationBoxClick(e) {
   const res = await eventApi.fetchEvents().catch(console.log);
   const data = pagination.change(eventApi.page);
 
-  renderEventList(getEvents(res))
+  renderEventList(getEvents(res));
   renderPagination(data);
 }
 
