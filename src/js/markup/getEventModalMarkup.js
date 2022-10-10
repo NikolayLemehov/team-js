@@ -1,19 +1,31 @@
 export function getEventModalMarkup(data) {
-  const { name, images, info, dates, promoter, products } = data;
-  const imgUrl = images[1].url;
+  const { images, info, dates, _embedded, priceRanges } = data;
+  const imgUrl = images[3].url;
+  const imgUrlSmall = images[8].url;
+  //when
   const localDate = dates.start.localDate;
   const localTime = dates.start.localTime;
   const timezone = dates.timezone;
-  // const productsName = products[0].name;
 
-  // const getEvents = res => res.data['_embedded']['events'];
+  //where
+  const country = _embedded.venues[0].country.name;
+  const city = _embedded.venues[0].city.name;
+  const place = _embedded.venues[0].name;
+
+  //who
+  const who = _embedded.attractions[0].name;
+  //price
+  const priceStandartType = priceRanges[0].type;
+  const priceStandartMin = priceRanges[0].min;
+  const priceStandartMax = priceRanges[0].max;
+  const priceCurrency = priceRanges[0].currency;
 
   return `
 
       <div class="modal__header">
         <img
           class="modal__img"
-          src="${imgUrl}"
+          src="${imgUrlSmall}"
           alt="The Black Eyed Peas"
           height="132px"
         />
@@ -24,6 +36,7 @@ export function getEventModalMarkup(data) {
             class="modal__imgBig"
             src="${imgUrl}"
             alt="The Black Eyed Peas"
+            width="427px"
             height="326px"
           />
 
@@ -31,23 +44,23 @@ export function getEventModalMarkup(data) {
           <p class="modal__text">${info}</</p>
 
           <h2 class="modal__title">WHEN</h2>
-          <p class="modal__textMini">">${localDate} ${localTime} </p>
-          <p class="modal__text">(${timezone})</p>
+          <p class="modal__textMini">${localDate}</p>
+          <p class="modal__text">${localTime}(${timezone})</p>
           <div>
             <h2 class="modal__title">WHERE</h2>
-            <p class="modal__textMini">">${promoter} </p>
-            <p class="modal__text">${promoter}</p>
+            <p class="modal__textMini">${city}, ${country} </p>
+            <p class="modal__text">${place}</p>
           </div>
           <div class="modal__whoSection">
             <h2 class="modal__title">WHO</h2>
-            <p class="modal__text">">${name}</p>
+            <p class="modal__text">${who}</p>
           </div>
         </div>
         <div class="modal__priceSection">
           <h2 class="modal__title">PRICES</h2>
           <div class="modal__priceAndBtn">
             <div>
-              <p class="modal__text">Standart 300-500 UAH</p>
+              <p class="modal__text">${priceStandartType} ${priceStandartMin}-${priceStandartMax} ${priceCurrency}</p>
               <div class="modal__buyTicketsBtn">
                 <button class="modal__btnBlue" type="button">
                   BUY TICKETS
@@ -65,10 +78,6 @@ export function getEventModalMarkup(data) {
           </div>
         </div>
       </div>
-      <div class="modal__lastBtn">
-        <button class="modal__btnAuthor" type="button">
-          MORE FROM THIS AUTHOR
-        </button>
-      </div>
+
 `;
 }
