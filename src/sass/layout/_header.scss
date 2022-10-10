@@ -44,12 +44,15 @@
     }
   }
   &__overlay {
+    position: relative;
     max-width: 1280px;
-    height: 446px;
+    height: 364px;
 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
+    z-index: -1;
 
     //  background: rgba(11, 11, 11, 0.5);
     //  border: 1px solid $color-default-black;
@@ -105,6 +108,10 @@
           ),
           url(../images/hero_bg@2x_mob.jpg);
       }
+    }
+
+    @include mb(desk){
+      height: 446px;
     }
   }
 

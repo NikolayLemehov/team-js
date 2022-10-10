@@ -13,6 +13,8 @@
 .card__list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
   gap: 32px 20px;
   margin-bottom: 60px;
 
@@ -41,6 +43,8 @@
   display: block;
   max-width: 130px;
   min-height: 129px;
+  margin-left: auto;
+  margin-right: auto;
 
   @include mb(tab){
   max-width: 152px;
