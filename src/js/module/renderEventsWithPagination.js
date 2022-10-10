@@ -7,7 +7,13 @@ import { setLoading } from '../utils/setLoading';
 
 export async function renderEventsWithPagination(data) {
   const fn = () => {};
-  const {value, countryCode, startLoading = fn, stopLoading = fn} = data || {}
+  const {
+    value,
+    countryCode,
+    page = 1,
+    startLoading = fn,
+    stopLoading = fn
+  } = data || {}
 
   const asyncCb = () => eventApi.fetchEvents(value, countryCode);
   const res = await setLoading(asyncCb, startLoading, stopLoading)
@@ -15,6 +21,6 @@ export async function renderEventsWithPagination(data) {
   renderEventList(getEvents(res))
 
   pagination.total = eventApi.total;
-  const paginationData = pagination.change(1);
+  const paginationData = pagination.change(page);
   renderPagination(paginationData);
 }
