@@ -5,7 +5,7 @@ import { removeChildren } from '../utils/removeChildren';
 import { renderEventList } from './renderEventList';
 import { getEvents } from '../selectors/getEvents';
 
-const paginationBoxRef = document.querySelector('.pagination-box__list');
+const paginationBoxRef = document.querySelector('.pagination-box');
 
 paginationBoxRef.addEventListener('click', onPaginationBoxClick);
 
