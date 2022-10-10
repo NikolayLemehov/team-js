@@ -7,8 +7,20 @@ button {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 9px;
-  right: 32px;
+
+  @include mb(mob-only) {
+    top: 24px;
+    right: 24px;
+  }
+  @include mb(tab) {
+    top: 32px;
+    right: 32px;
+  }
+  @include mb(desk) {
+    top: 9px;
+    right: 32px;
+  }
+
   width: 25px;
   height: 25px;
   text-decoration: none;
@@ -17,9 +29,10 @@ button {
   padding: 0;
   -webkit-transition: -webkit-transform 0.25s, opacity 0.25s;
   -moz-transition: -moz-transform 0.25s, opacity 0.25s;
-  transition: transform 0.25s, opacity 0.25s;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s;
+  // transition-property: box-shadow;
+  // transition-duration: 250ms;
+  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &__icon {
     width: 25px;
@@ -31,9 +44,13 @@ button {
   &:hover,
   &:focus {
     fill: #4c00fe;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    transform: rotate(180deg);
+    border-radius: 100%;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    box-shadow: 0 0 8px rgba(220, 86, 197, 0.3);
+
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
     opacity: 1;
   }
 }
@@ -41,43 +58,47 @@ button {
 .modal {
   padding-top: 480px;
   z-index: 5;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 
+  overflow-y: auto;
+
   background-color: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(1.5px);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   // Main container
 
   &__container {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin: 0 auto;
+    margin: auto 0;
     background: #fff2fd;
-    outline: 2px solid red;
+    outline: 1px solid red;
     @include mb(mob-only) {
       padding-left: 16px;
       padding-right: 21px;
       width: 280px;
       border-radius: 150px 0px;
-      height: 952px;
+      min-height: 952px;
     }
     @include mb(tab) {
       padding-left: 87px;
       padding-right: 49px;
       width: 704px;
       border-radius: 300px 0px;
+      min-height: 781px;
     }
     @include mb(desk) {
       padding-left: 66px;
       padding-right: 82px;
       width: 1034px;
-      max-height: 918px;
+      min-height: 918px;
       overflow-y: auto;
     }
   }
@@ -102,11 +123,11 @@ button {
   }
   &__img {
     display: flex;
+    border-radius: 100px;
     @include mb(mob-only) {
       width: 102px;
       height: 102px;
       object-fit: cover;
-      border-radius: 50px 0px;
     }
     @include mb(tab) {
       width: 70px;
@@ -117,7 +138,6 @@ button {
       width: 132px;
       height: 132px;
       object-fit: cover;
-      border-radius: 100px;
     }
   }
 
