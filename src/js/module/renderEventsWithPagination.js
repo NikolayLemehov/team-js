@@ -4,8 +4,8 @@ import {eventApi} from "../api/EventApi";
 import {getEvents} from "../selectors/getEvents";
 import {pagination} from "./Pagination.class";
 
-export async function renderInit() {
-  const res = await eventApi.fetchEvents('', '');
+export async function renderEventsWithPagination(value, countryCode) {
+  const res = await eventApi.fetchEvents(value, countryCode);
   renderEventList(getEvents(res))
 
   if (eventApi.total > 1) {

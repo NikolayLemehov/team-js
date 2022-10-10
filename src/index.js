@@ -1,6 +1,6 @@
 import './js/module/eventlist';
 import './js/module/pagination';
 import './js/module/searchForm';
-import {renderInit} from "./js/module/renderInit";
+import {renderEventsWithPagination} from "./js/module/renderEventsWithPagination";
 
-renderInit().catch(console.log)
+renderEventsWithPagination().catch(console.log)
