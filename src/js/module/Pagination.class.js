@@ -1,5 +1,5 @@
 export class Pagination {
-  #near = 2;
+  #near = 4;
   #age = 1;
   #total = null;
 
@@ -8,7 +8,7 @@ export class Pagination {
   }
 
   get total() {
-    return this.#total
+    return this.#total;
   }
 
   change(num) {

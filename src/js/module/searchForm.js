@@ -15,8 +15,8 @@ async function onFormSubmit(e) {
   e.preventDefault();
 
   const {searchValue, countryCode} = e.target.elements
-  const res = await eventApi.fetchEvents(searchValue.value, countryCode.value).catch(console.log)
 
+  const res = await eventApi.fetchEvents(searchValue.value, countryCode.value).catch(console.log)
   renderEventList(getEvents(res))
 
   if (eventApi.total > 1) {
