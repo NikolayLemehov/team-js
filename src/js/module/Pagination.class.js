@@ -1,7 +1,7 @@
 export class Pagination {
   #maxTotal = 49;
-  #near = 1;
-  #age = 5;
+  #near = 4;
+  #age = 1;
   #total = null;
 
   set total(value) {
@@ -18,7 +18,7 @@ export class Pagination {
     let min = num - this.#near;
     min = min < 1 ? 1 : min;
 
-    let max = num + this.#near;
+    let max = Math.max(num + this.#near, this.#age);
     max = max > this.#total ? this.#total : max;
 
     for (let i = min; i <= max; i++) {
