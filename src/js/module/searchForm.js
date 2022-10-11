@@ -2,9 +2,9 @@ import {countries} from "../variables/countries";
 import { renderEventsWithPagination } from './renderEventsWithPagination';
 
 const formRef = document.querySelector('.search__form');
-const selectRef = formRef.querySelector('select');
+// const selectRef = formRef.querySelector('select');
 
-renderOptions(countries)
+// renderOptions(countries)
 formRef.addEventListener('submit', onFormSubmit);
 
 async function onFormSubmit(e) {
@@ -24,8 +24,8 @@ async function onFormSubmit(e) {
   renderEventsWithPagination(renderData).catch(console.log)
 }
 
-function renderOptions(arr) {
-  const markup = arr.map(({code, name}) => (`<option value="${code}">${name}</option>`)).join('');
-  selectRef.insertAdjacentHTML('beforeend', markup);
-}
+// function renderOptions(arr) {
+//   const markup = arr.map(({code, name}) => (`<option value="${code}">${name}</option>`)).join('');
+//   selectRef.insertAdjacentHTML('beforeend', markup);
+// }
 

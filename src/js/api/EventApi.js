@@ -11,6 +11,7 @@ class EventApi {
   #page = 1;
   #size = 16;
   countryCode = '';
+  value = '';
 
   set page(page) {
     this.#page = page;
