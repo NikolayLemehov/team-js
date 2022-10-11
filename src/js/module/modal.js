@@ -1,13 +1,15 @@
 import { getEventModalMarkup } from '../markup/getEventModalMarkup';
 import { removeChildren } from '../utils/removeChildren';
+import { renderEventsWithPagination } from './renderEventsWithPagination';
 
 const refs = {
   // openModalBtns: document.querySelectorAll('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
   modalContent: document.querySelector('.modal__content'),
-  authorBtn: document.querySelector('.modal__lastBtn'),
+  authorBtn: document.querySelector('.modal__btn-author'),
   body: document.querySelector('body'),
+  inputResearch: document.querySelector('.search__input'),
 };
 
 refs.closeModalBtn.addEventListener('click', removeEscListener);
@@ -19,7 +21,7 @@ export function toggleModal() {
     // Disable scroll
     refs.body.style.overflow = 'hidden';
   } else {
-    console.log('fu');
+    // console.log('fu');
     // Enable scroll
     refs.body.style.overflow = 'auto';
   }
@@ -28,6 +30,7 @@ export function toggleModal() {
 export function renderModal(data) {
   removeChildren(refs.modalContent);
   refs.modalContent.insertAdjacentHTML('afterbegin', getEventModalMarkup(data));
+  refs.authorBtn.dataset.name = data._embedded.attractions[0].name;
 }
 
 //closes with ESC button
@@ -59,7 +62,12 @@ function onBackdropClick(event) {
 
 refs.authorBtn.addEventListener('click', searchByAuthor);
 
-function searchByAuthor() {
-  console.log('hey');
+function searchByAuthor(e) {
   toggleModal();
+  const data = {
+    value: e.target.dataset.name,
+    countryCode: '',
+  };
+  renderEventsWithPagination(data);
+  refs.inputResearch.value = data.value;
 }
