@@ -1,4 +1,5 @@
 import img from '../../images/select/arrow.svg';
+
 const getTemplate = (data = [], placeholder) => {
   const text = placeholder ?? 'Choose the country';
 
@@ -9,7 +10,7 @@ const getTemplate = (data = [], placeholder) => {
     }" data-id="${i + 1}">${item.name}</li>
     `;
   });
-  // class="visually-hidden"
+
   const options = data
     .map(({ code, name }) => `<option value="${code}">${name}</option>`)
     .join('');
@@ -23,7 +24,7 @@ const getTemplate = (data = [], placeholder) => {
     </select>
     <span class="select__name" data-type="name">${text}</span>
     <span class="select__img-wrap" data-type="arrow">
-      <img src="${img}" width="14">
+      <img src="${img}" width="14" alt="icon">
     </span>
   </div>
   <div class="select__dropdown">
@@ -51,15 +52,13 @@ export class Select {
   }
 
   #setup() {
-    this.clickHandler = this.clickHandler.bind(this);
     this.$el.addEventListener('click', this.clickHandler);
     this.$arrow = this.$el.querySelector('[data-type="arrow"]');
     this.$name = this.$el.querySelector('[data-type="name"]');
   }
 
-  clickHandler(event) {
+  clickHandler = (event) => {
     const { type } = event.target.dataset;
-    console.log(event.target, type);
 
     if (type === 'input') {
       this.toggle();
