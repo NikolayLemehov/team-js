@@ -1,7 +1,7 @@
 import img from '../../images/select/arrow.svg';
 
 const getTemplate = (data = [], placeholder) => {
-  const text = placeholder ?? 'Choose the country';
+  const text = placeholder;
 
   const items = data.map((item, i) => {
     return `
@@ -34,14 +34,18 @@ const getTemplate = (data = [], placeholder) => {
   </div>`;
 };
 
+const initOptions = {
+  placeholder: 'placeholder',
+  data: [],
+}
+
 export class Select {
   constructor(selector, options) {
     this.$el = document.querySelector(selector);
-    this.options = options;
+    this.options = { ...initOptions, ...options  };
     this.selectedCode = null;
 
     this.#render();
-    this.$nativeSelect = this.$el.querySelector('[name="countryCode"]');
     this.#setup();
   }
 
@@ -53,8 +57,13 @@ export class Select {
 
   #setup() {
     this.$el.addEventListener('click', this.clickHandler);
+    this.$nativeSelect = this.$el.querySelector('[name="countryCode"]');
     this.$arrow = this.$el.querySelector('[data-type="arrow"]');
     this.$name = this.$el.querySelector('[data-type="name"]');
+    this.optionList = [
+      {code: '', name: this.options.placeholder},
+      ...this.options.data
+    ]
   }
 
   clickHandler = (event) => {
@@ -76,7 +85,19 @@ export class Select {
   }
 
   get current() {
-    return this.options.data.find(item => item.code === this.selectedCode);
+    return this.optionList.find(item => item.code === this.selectedCode);
+  }
+
+  reset() {
+    this.$nativeSelect.selectedIndex = 0;
+    this.selectedCode = '';
+    this.$name.textContent = this.options.placeholder;
+    this.$name.classList.remove('selected');
+    this.$el.querySelectorAll('[data-type="item"]').forEach(el => {
+      el.classList.remove('selected');
+    });
+
+    this.options.onSelect ? this.options.onSelect(this.current) : null;
   }
 
   select(code, index) {
