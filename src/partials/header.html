@@ -23,12 +23,25 @@
           placeholder="Start searching"
           name="searchValue"
         />
+        <button class="button__search" type="submit">
+          <picture>
+            <img
+              class="search__icon"
+              src="./images/search_icon1.svg"
+              alt="search icon"
+            />
+          </picture>
+        </button>
       </label>
-      <label class="search-select form__label">
-        <select class="form__input country__code search-select__select" name="countryCode">
+      <!-- <label class="search-select form__label">
+        <select
+          class="form__input country__code search-select__select"
+          name="countryCode"
+        >
           <option value="" selected disabled hidden>Choose country</option>
         </select>
-      </label>
+      </label> -->
+      <div id="select"></div>
     </form>
   </div>
   <div class="header__gradient"></div>

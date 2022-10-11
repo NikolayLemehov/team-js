@@ -143,6 +143,7 @@
 }
 
 .form__label {
+  position: relative;
   max-width: 288px;
   width: 100%;
   @include mb(tab-only) {
@@ -189,6 +190,32 @@
   }
 }
 
+.button__search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 14px 32px;
+  width: 76px;
+  height: 40px;
+
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  background-color: transparent;
+  color: $color-suva-grey;
+  outline: transparent;
+  border: transparent;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.search__icon {
+  width: 12px;
+  height: 12px;
+}
+
 .header__logo-bg-wrapper {
   --width: 214px;
   --height: 180px;
@@ -228,6 +255,9 @@
 
 .header__logo {
   position: absolute;
-  top: 41px;
+  top: 20px;
   left: $padding-container-desk;
+  @include mb('desk') {
+    top: 41px;
+  }
 }
