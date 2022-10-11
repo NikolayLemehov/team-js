@@ -17,13 +17,25 @@
   <!-- ❗️❗️❗️ Add partials like so for every page -->
 
   <div class="page-bg">
-    <include src="./partials/header.html"></include>
-    <include src="./partials/main.html"></include>
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/modal.html"></include>
+    <picture>
+      <source media="(min-width: 1280px)" srcset="
+              ./images/hero_bg@1x_desk.jpg 1x,
+              ./images/hero_bg@2x_desk.jpg 2x" type="image/jpg" />
+      <source media="(min-width: 768px)" srcset="
+              ./images/hero_bg@1x_tab.jpg 1x,
+              ./images/hero_bg@2x_tab.jpg 2x" type="image/jpg" />
+      <source media="(max-width: 767px)" srcset="
+              ./images/hero_bg@1x_mob.jpg 1x,
+              ./images/hero_bg@2x_mob.jpg 2x" type="image/jpg" />
+      <img class="page-bg__header" src="./images/hero_bg@1x_desk.jpg" alt="hero" width="1280" height="446">
+    </picture>
+    <img class="page-bg__back-desk" src="./images/main-bg/bg_desk.svg" alt="">
   </div>
+  <include src="./partials/header.html"></include>
+  <include src="./partials/main.html"></include>
+  <include src="./partials/footer.html"></include>
+  <include src="./partials/modal.html"></include>
 
-  <!-- <img class="page-bg__img" src="./images/main-bg/bg_desk.svg" alt=""> -->
 
 </body>
 
