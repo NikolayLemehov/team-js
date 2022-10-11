@@ -248,6 +248,9 @@
 
 .header__logo {
   position: absolute;
-  top: 41px;
+  top: 20px;
   left: $padding-container-desk;
+  @include mb('desk') {
+    top: 41px;
+  }
 }
