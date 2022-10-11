@@ -9,6 +9,9 @@ body {
   font-size: 16px;
   color: $color-white;
   background-color: $color-black2;
+
+  background-image: url(../images/main-bg/noise-body.png);
+  background-repeat: repeat;
 }
 
 .visually-hidden {

@@ -8,7 +8,29 @@
     margin-right: auto;
 }
 
-.page-bg__back-desk {
-    position: absolute;
-    width: 100%;
+.page-bg__desk {
+    display: none;
+
+    @include mb(desk){
+        display: block;
+        margin-top: -446px;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+    }
+}
+
+.page-bg__tab {
+    display: none;
+
+    @include mb(tab){
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -90px;
+    }
+
+    @include mb(desk){
+        display: none;
+    }
 }
