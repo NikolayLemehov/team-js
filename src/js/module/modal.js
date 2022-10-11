@@ -62,12 +62,12 @@ function onBackdropClick(event) {
 
 refs.authorBtn.addEventListener('click', searchByAuthor);
 
-function searchByAuthor(e) {
+async function searchByAuthor(e) {
   toggleModal();
   const data = {
     value: e.target.dataset.name,
     countryCode: '',
   };
-  renderEventsWithPagination(data);
+  await renderEventsWithPagination(data);
   refs.inputResearch.value = data.value;
 }
