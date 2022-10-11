@@ -51,10 +51,6 @@
     background-position: center;
     background-size: cover;
 
-    //  background: rgba(11, 11, 11, 0.5);
-    //  border: 1px solid $color-default-black;
-    //  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
     background-image: linear-gradient(
         to right,
         rgba(11, 11, 11, 0.5),
@@ -111,8 +107,6 @@
   &__gradient {
     max-width: 1280px;
     height: 102px;
-    //  margin-left: -37px;
-    //  margin-right: -37px;
 
     background-image: linear-gradient(
       180deg,
@@ -139,6 +133,7 @@
   position: relative;
   max-width: 288px;
   width: 100%;
+
   @include mb(tab-only) {
     max-width: 336px;
     width: 100%;
@@ -152,6 +147,10 @@
   }
 }
 
+.search__input {
+  color: $color-default-white;
+}
+
 .form__input {
   padding: 10px 32px;
   max-width: 288px;
@@ -159,13 +158,16 @@
 
   font-size: 16px;
   line-height: 1.25;
+  color: $color-default-white;
 
   backdrop-filter: blur(10px);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.2);
-  color: $color-suva-grey;
+
   outline: transparent;
   border: transparent;
+
+  transition: box-shadow $transition;
 
   @include mb(tab-only) {
     max-width: 336px;
@@ -192,11 +194,17 @@
   height: 40px;
 
   backdrop-filter: blur(10px);
-  border-radius: 20px;
+
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
   background-color: transparent;
   color: $color-suva-grey;
+  fill: $color-suva-grey;
   outline: transparent;
   border: transparent;
+
+  transition: box-shadow $transition;
 
   &:hover,
   &:focus {
@@ -204,9 +212,14 @@
   }
 }
 
+.country__code {
+  color: $color-suva-grey;
+}
+
 .search__icon {
   width: 12px;
   height: 12px;
+  fill: $color-default-white;
 }
 
 .header__logo-bg-wrapper {
