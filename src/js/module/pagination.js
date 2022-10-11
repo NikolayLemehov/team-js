@@ -7,6 +7,7 @@ import { getEvents } from '../selectors/getEvents';
 import { renderEventsWithPagination } from './renderEventsWithPagination';
 
 const paginationBoxRef = document.querySelector('.pagination');
+const paginationLoader = document.querySelector('.spinner');
 
 paginationBoxRef.addEventListener('click', onPaginationBoxClick);
 
@@ -18,19 +19,23 @@ async function onPaginationBoxClick(e) {
   eventApi.page = Number(clickedEl.dataset.btn);
 
   const startLoading = () => {
-    clickedEl.classList.add('clicked');
-    paginationBoxRef.classList.add('loading');
+    // clickedEl.classList.add('clicked');
+    paginationBoxRef.classList.add('visually-hidden');
+    paginationLoader.classList.remove('visually-hidden');
   };
   const stopLoading = () => {
-    paginationBoxRef.classList.remove('loading');
-  }
+    setTimeout(() => {
+      paginationBoxRef.classList.remove('visually-hidden');
+      paginationLoader.classList.add('visually-hidden');
+    }, 250);
+  };
 
   const renderData = {
     page: eventApi.page,
     startLoading,
     stopLoading,
-  }
-  renderEventsWithPagination(renderData).catch(console.log)
+  };
+  renderEventsWithPagination(renderData).catch(console.log);
 }
 
 export function renderPagination(data) {

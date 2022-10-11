@@ -15,6 +15,14 @@
 .pagination__btn {
   background-color: transparent;
   color: $color-white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+
+  @include mb(mob-only) {
+    font-size: 14px;
+    line-height: 1.21;
+  }
 }
 .pagination__btn--current {
   color: $color-pink;
@@ -23,4 +31,46 @@
   border-bottom-right-radius: 10px;
   width: 30px;
   height: 30px;
+
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.spinner {
+  height: 50px;
+  width: 50px;
+  border-left: 4px solid $color-pink;
+  border-bottom: 4px solid $color-pink;
+  border-right: 4px solid $color-pink;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+
+  @include mb(mob-only) {
+    height: 35px;
+    width: 35px;
+  }
+
+  @keyframes spinner {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
