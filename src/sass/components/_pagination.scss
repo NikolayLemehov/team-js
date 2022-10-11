@@ -3,6 +3,7 @@
 .gallery__pagination {
   display: flex;
   justify-content: center;
+  height: 30px;
 }
 
 .pagination {
@@ -37,6 +38,7 @@
 }
 
 .spinner {
+  position: absolute;
   height: 50px;
   width: 50px;
   border-left: 4px solid $color-pink;
