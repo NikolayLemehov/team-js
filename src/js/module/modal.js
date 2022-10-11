@@ -9,7 +9,7 @@ const refs = {
   modalContent: document.querySelector('.modal__content'),
   authorBtn: document.querySelector('.modal__btn-author'),
   body: document.querySelector('body'),
-  inputResearch: document.querySelector('.search__input'),
+  inputResearch: document.querySelector('.form__input'),
 };
 
 refs.closeModalBtn.addEventListener('click', removeEscListener);
@@ -71,3 +71,4 @@ async function searchByAuthor(e) {
   await renderEventsWithPagination(data);
   refs.inputResearch.value = data.value;
 }
+console.log(refs.inputResearch)

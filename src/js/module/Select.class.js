@@ -28,7 +28,7 @@ const getTemplate = (data = [], placeholder) => {
   </div>
   <div class="select__dropdown">
     <ul class="select__list">
-      ${items.join('')}  
+      ${items.join('')}
     </ul>
   </div>`;
 };
@@ -82,7 +82,6 @@ export class Select {
 
   select(code, index) {
     this.$nativeSelect.selectedIndex = index;
-    console.log('nativeSelect', this.$nativeSelect.selectedIndex);
     this.selectedCode = code;
     this.$name.textContent = this.current.name;
     this.$name.classList.add('selected');
