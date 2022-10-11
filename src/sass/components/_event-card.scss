@@ -2,10 +2,10 @@
   overflow: hidden;
   margin-top: -56px;
 
-  @include mb(tab){
+  @include mb(tab) {
     margin-top: -90px;
   }
-  @include mb(desk){
+  @include mb(desk) {
     margin-top: -76px;
   }
 }
@@ -25,7 +25,7 @@
 
 .card__item {
   position: relative;
-  flex-basis: calc(((100% - 20px))/ 2);
+  flex-basis: calc(((100% - 20px)) / 2);
   max-height: 208px;
 
   @include mb(tab) {
@@ -36,7 +36,6 @@
   @include mb(desk) {
     max-height: 320px;
   }
-
 }
 
 .card__link {
@@ -46,74 +45,74 @@
   margin-left: auto;
   margin-right: auto;
 
-  @include mb(tab){
-  max-width: 152px;
-  min-height: 130px;
+  @include mb(tab) {
+    max-width: 152px;
+    min-height: 130px;
   }
 
-  @include mb(desk){
+  @include mb(desk) {
     max-width: 288px;
     min-height: 239px;
   }
 
   &::before {
-    content: "";
-      display: block;
-    
-      width: 102px;
-      height: 95px;
-      margin-left: 28px;
-    
-      border: 1px solid rgba(220, 86, 197, 0.3);
-      border-radius: 50px 0px;
-    
-      @include mb(tab) {
-        width: 120px;
-        height: 112px;
-        margin-left: 32px;
-      }
-    
-      @include mb(desk) {
-        width: 227px;
-        height: 213px;
-        margin-left: 61px;
-      }
+    content: '';
+    display: block;
+
+    width: 102px;
+    height: 95px;
+    margin-left: 28px;
+
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    border-radius: 50px 0px;
+
+    @include mb(tab) {
+      width: 120px;
+      height: 112px;
+      margin-left: 32px;
+    }
+
+    @include mb(desk) {
+      width: 227px;
+      height: 213px;
+      margin-left: 61px;
+    }
   }
 }
 
 .card__thumb {
   position: absolute;
-    overflow: hidden;
-    top: 9px;
-    object-fit: cover;
+  overflow: hidden;
+  top: 9px;
+  object-fit: cover;
 
-    max-width: 120px;
+  max-width: 120px;
+  max-height: 120px;
+
+  border-radius: 50px 0px;
+
+  transition: box-shadow $transition, transform $transition;
+
+  @media screen and (min-width: 768px) {
+    max-width: 141px;
     max-height: 120px;
 
-    border-radius: 50px 0px;
-
-    transition: box-shadow $transition, transform $transition;
-
-    @media screen and (min-width: 768px) {
-      max-width: 141px;
-      max-height: 120px;
-
-      top: 10px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      max-width: 267px;
-     max-height: 220px;
-
-      top: 19px;
-    }
-
-        &:hover,
-        &:focus {
-          transform: translate(10px, -10px);
-          box-shadow: 0px 0px 35px rgba(235, 58, 205, 0.8);
-        }
+    top: 10px;
   }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 267px;
+    max-height: 220px;
+
+    top: 19px;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translate(10px, -10px);
+    box-shadow: 0px 0px 35px rgba(235, 58, 205, 0.8);
+  }
+}
 
 .card__info {
   display: flex;
