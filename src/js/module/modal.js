@@ -1,6 +1,7 @@
 import { getEventModalMarkup } from '../markup/getEventModalMarkup';
 import { removeChildren } from '../utils/removeChildren';
 import { renderEventsWithPagination } from './renderEventsWithPagination';
+import { select } from './select';
 
 const refs = {
   // openModalBtns: document.querySelectorAll('[data-modal-open]'),
@@ -68,7 +69,6 @@ async function searchByAuthor(e) {
     value: e.target.dataset.name,
     countryCode: '',
   };
+  select.reset()
   await renderEventsWithPagination(data);
-  refs.inputResearch.value = data.value;
 }
-console.log(refs.inputResearch)
