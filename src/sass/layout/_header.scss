@@ -59,12 +59,20 @@
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin-bottom: 94px;
+  margin-bottom: 10px;
 
   @include mb(mob-only) {
     gap: 24px;
     flex-direction: column;
     margin-bottom: 10px;
+  }
+
+  @include mb(tab){
+    margin-bottom: 68px;
+  }
+
+  @include mb(desk){
+    margin-bottom: 94px;
   }
 }
 

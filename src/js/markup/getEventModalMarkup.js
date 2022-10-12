@@ -1,7 +1,24 @@
+import { Notify } from 'notiflix';
+
+function makeFirstLetterBig(string) {
+  if (string !== undefined) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  } else return false;
+}
+
+function ifItsExists(value) {
+  if (value !== undefined) {
+    return value;
+  } else {
+    return Notify.warning('hey'), 'no information';
+  }
+}
+
 export function getEventModalMarkup(data) {
   const { images, info, dates, _embedded, priceRanges } = data;
-  const imgUrl = images[3].url;
+  const imgUrl = images[2].url;
   const imgUrlSmall = images[8].url;
+
   //when
   const localDate = dates.start.localDate;
   const localTime = dates.start.localTime;
@@ -13,12 +30,40 @@ export function getEventModalMarkup(data) {
   const place = _embedded.venues[0].name;
 
   //who
-  const who = _embedded.attractions[0].name;
-  //price
-  const priceStandartType = priceRanges[0].type;
-  const priceStandartMin = priceRanges[0].min;
-  const priceStandartMax = priceRanges[0].max;
-  const priceCurrency = priceRanges[0].currency;
+  //проблема, когда нету данных - то модалка не работает. Например, поиск события Hey
+  const who = ifItsExists(_embedded.attractions[0].name);
+
+  //price standard
+  const priceStandardType = makeFirstLetterBig(priceRanges[0].type);
+
+  function standardPricee() {
+    if (priceStandardType) {
+      return `<p class="modal__text">${priceStandardType} ${priceRanges[0].min}-${priceRanges[0].max} ${priceRanges[0].currency}</p><div class="modal__buyTicketsBtn">
+                <button class="modal__btnBlue" type="button">
+                  BUY TICKETS
+                </button>
+              </div>`;
+    } else '';
+  }
+
+  const standardPrice = standardPricee();
+
+  //price VIP
+
+  const checkVipExists = priceRanges.findIndex(option => option.type === 'VIP');
+
+  function ifItsExistsCheckVip() {
+    if (checkVipExists < 0) {
+      return '';
+    } else
+      return `<p class="modal__text">${priceRanges[1].type} ${priceRanges[1].min}-${priceRanges[1].max} ${priceRanges[1].currency}</p><div class="modal__buyTicketsBtn">
+                <button class="modal__btnBlue" type="button">
+                  BUY TICKETS
+                </button>
+              </div>`;
+  }
+
+  const vipPrice = ifItsExistsCheckVip();
 
   return `
 
@@ -60,20 +105,11 @@ export function getEventModalMarkup(data) {
           <h2 class="modal__title">PRICES</h2>
           <div class="modal__priceAndBtn">
             <div>
-              <p class="modal__text">${priceStandartType} ${priceStandartMin}-${priceStandartMax} ${priceCurrency}</p>
-              <div class="modal__buyTicketsBtn">
-                <button class="modal__btnBlue" type="button">
-                  BUY TICKETS
-                </button>
-              </div>
+              ${standardPrice}
             </div>
             <div class="modal__vipPrice">
-              <p class="modal__text">VIP 1000-1500 UAH</p>
-              <div class="modal__buyTicketsBtn">
-                <button class="modal__btnBlue" type="button">
-                  BUY TICKETS
-                </button>
-              </div>
+              ${vipPrice}
+
             </div>
           </div>
         </div>

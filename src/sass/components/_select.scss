@@ -4,7 +4,7 @@ $height: 46px;
   max-width: 288px;
   width: 100%;
   position: relative;
-  z-index: 100;
+  z-index: 2;
   margin-left: auto;
   margin-right: auto;
   @include mb('desk') {
@@ -25,13 +25,9 @@ $height: 46px;
   }
 
   &__input {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    // height: $height;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem;
     cursor: pointer;
 
     width: 100%;

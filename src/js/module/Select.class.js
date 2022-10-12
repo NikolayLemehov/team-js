@@ -1,6 +1,7 @@
 import img from '../../images/select/arrow.svg';
+
 const getTemplate = (data = [], placeholder) => {
-  const text = placeholder ?? 'Choose the country';
+  const text = placeholder;
 
   const items = data.map((item, i) => {
     return `
@@ -9,7 +10,7 @@ const getTemplate = (data = [], placeholder) => {
     }" data-id="${i + 1}">${item.name}</li>
     `;
   });
-  // class="visually-hidden"
+
   const options = data
     .map(({ code, name }) => `<option value="${code}">${name}</option>`)
     .join('');
@@ -23,24 +24,28 @@ const getTemplate = (data = [], placeholder) => {
     </select>
     <span class="select__name" data-type="name">${text}</span>
     <span class="select__img-wrap" data-type="arrow">
-      <img src="${img}" width="14">
+      <img src="${img}" width="14" alt="icon">
     </span>
   </div>
   <div class="select__dropdown">
     <ul class="select__list">
-      ${items.join('')}  
+      ${items.join('')}
     </ul>
   </div>`;
 };
 
+const initOptions = {
+  placeholder: 'placeholder',
+  data: [],
+}
+
 export class Select {
   constructor(selector, options) {
     this.$el = document.querySelector(selector);
-    this.options = options;
+    this.options = { ...initOptions, ...options  };
     this.selectedCode = null;
 
     this.#render();
-    this.$nativeSelect = this.$el.querySelector('[name="countryCode"]');
     this.#setup();
   }
 
@@ -51,15 +56,18 @@ export class Select {
   }
 
   #setup() {
-    this.clickHandler = this.clickHandler.bind(this);
     this.$el.addEventListener('click', this.clickHandler);
+    this.$nativeSelect = this.$el.querySelector('[name="countryCode"]');
     this.$arrow = this.$el.querySelector('[data-type="arrow"]');
     this.$name = this.$el.querySelector('[data-type="name"]');
+    this.optionList = [
+      {code: '', name: this.options.placeholder},
+      ...this.options.data
+    ]
   }
 
-  clickHandler(event) {
+  clickHandler = (event) => {
     const { type } = event.target.dataset;
-    console.log(event.target, type);
 
     if (type === 'input') {
       this.toggle();
@@ -77,12 +85,23 @@ export class Select {
   }
 
   get current() {
-    return this.options.data.find(item => item.code === this.selectedCode);
+    return this.optionList.find(item => item.code === this.selectedCode);
+  }
+
+  reset() {
+    this.$nativeSelect.selectedIndex = 0;
+    this.selectedCode = '';
+    this.$name.textContent = this.options.placeholder;
+    this.$name.classList.remove('selected');
+    this.$el.querySelectorAll('[data-type="item"]').forEach(el => {
+      el.classList.remove('selected');
+    });
+
+    this.options.onSelect ? this.options.onSelect(this.current) : null;
   }
 
   select(code, index) {
     this.$nativeSelect.selectedIndex = index;
-    console.log('nativeSelect', this.$nativeSelect.selectedIndex);
     this.selectedCode = code;
     this.$name.textContent = this.current.name;
     this.$name.classList.add('selected');
