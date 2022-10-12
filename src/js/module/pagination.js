@@ -2,6 +2,7 @@ import { getPaginationMarkup } from '../markup/getPaginationMarkup';
 import { eventApi } from '../api/EventApi';
 import { removeChildren } from '../utils/removeChildren';
 import { renderEventsWithPagination } from './renderEventsWithPagination';
+import { Notify } from 'notiflix';
 
 const paginationBoxRef = document.querySelector('.pagination');
 const paginationLoader = document.querySelector('.spinner');
@@ -31,7 +32,7 @@ async function onPaginationBoxClick(e) {
     startLoading,
     stopLoading,
   };
-  renderEventsWithPagination(renderData).catch(console.log);
+  renderEventsWithPagination(renderData).catch(e => Notify.failure(e.message));
 }
 
 export function renderPagination(data) {
