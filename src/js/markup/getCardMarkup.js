@@ -1,5 +1,4 @@
 import symbolDefs from '../../images/symbol-defs.svg';
-import { getBiggestBigImg } from './getEventModalMarkup';
 
 const defaultImg = '';
 const MIN_IMG_WIDTH = 267;
