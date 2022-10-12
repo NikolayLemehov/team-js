@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   max-width: 1280px;
   padding-top: 40px;
 
@@ -6,6 +7,8 @@
   margin-right: auto;
 
   text-align: center;
+
+  overflow: hidden;
 
   background-color: rgba(11, 11, 11, 0.5);
   @include mb(mob-only) {
@@ -61,31 +64,6 @@
       rgba(13, 13, 13, 0.19) 0%,
       rgba(14, 14, 14, 0.8) 100%
     );
-  }
-}
-
-.first-part {
-  width: 100%;
-  position: absolute;
-  left: 1000px;
-}
-
-.second-part {
-  width: 100%;
-  position: absolute;
-  left: 1000px;
-  top: 22px;
-
-  @include mb(mob-only) {
-    top: 22px;
-  }
-
-  @include mb(tab) {
-    top: 37px;
-  }
-
-  @include mb(desk) {
-    top: 61px;
   }
 }
 
