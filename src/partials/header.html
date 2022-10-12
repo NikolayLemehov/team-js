@@ -1,10 +1,13 @@
-<header class="header header__overlay">
+<header class="header">
   <div class="header__logo-bg-wrapper">
     <div class="header__logo-bg"></div>
   </div>
   <a href="" class="logo header__logo">
     <picture>
-      <source media="(min-width: 1280px)" srcset="./images/logo/logo-1280.svg" />
+      <source
+        media="(min-width: 1280px)"
+        srcset="./images/logo/logo-1280.svg"
+      />
       <source media="(min-width: 768px)" srcset="./images/logo/logo-768.svg" />
       <img
         class="logo__img"
@@ -15,24 +18,26 @@
   </a>
   <div class="container">
     <h1 class="header__title">Find best events around the world</h1>
-    <form class="search__form">
-      <label class="form__label">
-        <input
-          class="form__input"
-          type="search"
-          placeholder="Start searching"
-          name="searchValue"
-        />
-        <button class="button__search" type="submit">
-          <svg class="search__icon">
+    <form class="form">
+      <div class="form__label">
+        <label>
+          <input
+            class="form__input"
+            type="search"
+            placeholder="Start searching"
+            name="searchValue"
+          />
+        </label>
+        <button class="button-search" type="submit">
+          <svg class="search-icon">
             <use
-              href="./images/search_icon.svg#search"
+              href="./images/symbol-defs.svg#search"
               width="12px"
               height="12px"
             ></use>
           </svg>
         </button>
-      </label>
+      </div>
       <div id="select"></div>
     </form>
   </div>
