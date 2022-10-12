@@ -1,3 +1,5 @@
+import { Notify } from 'notiflix';
+
 function makeFirstLetterBig(string) {
   if (string !== undefined) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -8,13 +10,11 @@ function ifItsExists(value) {
   if (value !== undefined) {
     return value;
   } else {
-    return console.log('hey'), 'no information';
+    return Notify.warning('hey'), 'no information';
   }
 }
 
-// console.log(ifItsExists(makeFirstLetterBig(priceRanges[0].type)));
 export function getEventModalMarkup(data) {
-  console.log(data);
   const { images, info, dates, _embedded, priceRanges } = data;
   const imgUrl = images[2].url;
   const imgUrlSmall = images[8].url;
@@ -109,7 +109,7 @@ export function getEventModalMarkup(data) {
             </div>
             <div class="modal__vipPrice">
               ${vipPrice}
-              
+
             </div>
           </div>
         </div>
