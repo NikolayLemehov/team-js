@@ -81,7 +81,9 @@ export function getEventModalMarkup(data) {
 
   function isExistsCheckVip() {
     return checkVipExists > 0
-      ? `<p class="modal__text">${priceRanges[1].type} ${priceRanges[1].min}-${priceRanges[1].max} ${priceRanges[1].currency}</p><div class="modal__buyTicketsBtn">
+      ? `<p class="modal__text"><svg class="modal__iconTicket" width="29" height="20">
+                <use href="${symbolDefs}#icon-ticket"></use>
+              </svg> ${priceRanges[1].type} ${priceRanges[1].min}-${priceRanges[1].max} ${priceRanges[1].currency}</p><div class="modal__buyTicketsBtn">
           <button class="modal__btnBlue" type="button">
             BUY TICKETS
           </button>
@@ -152,7 +154,9 @@ function standardPricee(priceRanges) {
   const currency = priceRanges[0].currency;
 
   return priceStandardType
-    ? `<p class="modal__text">${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
+    ? `<p class="modal__text"><svg class="card__iconTicket" width="29" height="20">
+                <use href="${symbolDefs}#icon-ticket"></use>
+              </svg> ${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
         <button class="modal__btnBlue" type="button">
           BUY TICKETS
         </button>
