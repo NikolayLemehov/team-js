@@ -46,6 +46,7 @@ function getBiggestBigImg(images = []) {
 export function getEventModalMarkup(data) {
   const { images, info, dates, _embedded, priceRanges } = data;
 
+  console.log(data);
   //images
   const imgUrl = getBiggestBigImg(images);
   const imgUrlSmall = getBiggestSmallImg(images);
@@ -62,6 +63,8 @@ export function getEventModalMarkup(data) {
   const country = isExists(() => _embedded.venues[0].country.name);
   const city = isExists(() => _embedded.venues[0].city.name);
   const place = isExists(() => _embedded.venues[0].name);
+  const latitude = isExists(() => _embedded.venues[0].location.latitude);
+  const longitude = isExists(() => _embedded.venues[0].location.longitude);
 
   //who
   const who = isExists(() => _embedded.attractions[0].name);
@@ -113,7 +116,7 @@ export function getEventModalMarkup(data) {
           <div>
             <h2 class="modal__title">WHERE</h2>
             <p class="modal__textMini">${city}, ${country} </p>
-            <p class="modal__text">${place}</p>
+            <p class="modal__text"><a href="https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}" target="_blank">${place}</a></p>
           </div>
           <div class="modal__whoSection">
             <h2 class="modal__title">WHO</h2>
@@ -128,7 +131,6 @@ export function getEventModalMarkup(data) {
             </div>
             <div class="modal__vipPrice">
               ${vipPrice}
-
             </div>
           </div>
         </div>
