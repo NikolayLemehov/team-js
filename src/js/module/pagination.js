@@ -1,9 +1,6 @@
 import { getPaginationMarkup } from '../markup/getPaginationMarkup';
-import { pagination } from './Pagination.class';
 import { eventApi } from '../api/EventApi';
 import { removeChildren } from '../utils/removeChildren';
-import { renderEventList } from './renderEventList';
-import { getEvents } from '../selectors/getEvents';
 import { renderEventsWithPagination } from './renderEventsWithPagination';
 
 const paginationBoxRef = document.querySelector('.pagination');
@@ -19,7 +16,6 @@ async function onPaginationBoxClick(e) {
   eventApi.page = Number(clickedEl.dataset.btn);
 
   const startLoading = () => {
-    // clickedEl.classList.add('clicked');
     paginationBoxRef.classList.add('visually-hidden');
     paginationLoader.classList.remove('visually-hidden');
   };
