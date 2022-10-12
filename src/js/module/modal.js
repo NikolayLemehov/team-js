@@ -40,6 +40,8 @@ export function renderModal(data) {
     'Unknown author';
   removeChildren(refs.modalContent);
   refs.modalContent.insertAdjacentHTML('afterbegin', getEventModalMarkup(data));
+  window.dispatchEvent(new CustomEvent('modalRenderFinished',
+    {detail: {containerRef: refs.modal}}));
   refs.authorBtn.dataset.name = name;
 }
 

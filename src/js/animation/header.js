@@ -1,5 +1,4 @@
 import anime from 'animejs';
-console.log(anime);
 
 let mobPoint = window.matchMedia('(max-width: 767px)');
 let tabPoint = window.matchMedia('(max-width: 1199px)');

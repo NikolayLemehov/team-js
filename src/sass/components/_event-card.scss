@@ -35,23 +35,24 @@
 
 .card__link {
   display: block;
-  max-width: 130px;
-  min-height: 129px;
+  width: 130px;
+  height: 129px;
   margin-left: auto;
   margin-right: auto;
 
   @include mb(tab) {
-    max-width: 152px;
-    min-height: 130px;
+    width: 152px;
+    height: 130px;
   }
 
   @include mb(desk) {
-    max-width: 288px;
-    min-height: 239px;
+    width: 288px;
+    height: 239px;
   }
 
   &::before {
     content: '';
+    position: absolute;
     display: block;
 
     width: 102px;
