@@ -1,10 +1,22 @@
-import symbolDefs from '../../images/symbol-defs.svg'
+import symbolDefs from '../../images/symbol-defs.svg';
+
+const defaultImg = '';
+const MIN_IMG_WIDTH = 267;
+
+function getNormSize(images = []) {
+  if (images.length === 0) return defaultImg;
+  const newImages = images.filter(it => it.ratio === '3_2');
+  newImages.sort((a, b) => b.width - a.width);
+  return newImages.find(it => it.width > MIN_IMG_WIDTH).url;
+}
 
 export function getCardMarkup(data) {
+  const imgUrl = getNormSize(data.images);
+
   return `<li class="card__item" data-id="${data.id}">
           <a href="" class="card__link">
             <div class="card__thumb">
-              <img src="${data.images[4].url}" alt="card" width="267" height="220" class="card__img">
+              <img src="${imgUrl}" alt="card" width="267" height="220" class="card__img">
             </div>
           </a>
           <div class="card__info">
@@ -16,5 +28,5 @@ export function getCardMarkup(data) {
               </svg>${data._embedded.venues[0].name}
             </a>
           </div>
-        </li>`
+        </li>`;
 }
