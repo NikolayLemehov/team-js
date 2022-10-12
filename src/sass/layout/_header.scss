@@ -65,16 +65,28 @@
 }
 
 .first-part {
-  position: absolute;
-  left: 0px;
   width: 100%;
+  position: absolute;
+  left: 1000px;
 }
 
 .second-part {
-  position: absolute;
-  top: 61px;
-  left: 0px;
   width: 100%;
+  position: absolute;
+  left: 1000px;
+  top: 22px;
+
+  @include mb(mob-only) {
+    top: 22px;
+  }
+
+  @include mb(tab) {
+    top: 37px;
+  }
+
+  @include mb(desk) {
+    top: 61px;
+  }
 }
 
 .form {

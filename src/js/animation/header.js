@@ -2,7 +2,7 @@ import anime from 'animejs';
 
 anime({
   targets: '.first-part',
-  translateX: 100,
+  translateX: -1000,
   //   rotate: '1turn',
   duration: 3000,
   //   easing: 'spring(1, 80, 10, 0)',
@@ -10,8 +10,8 @@ anime({
 
 anime({
   targets: '.second-part',
-  translateX: 100,
+  translateX: -1000,
   //   rotate: '1turn',
-  duration: 4000,
+  duration: 3000,
   //   easing: 'spring(1, 80, 10, 0)',
 });
