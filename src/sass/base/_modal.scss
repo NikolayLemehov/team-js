@@ -349,4 +349,11 @@ button {
       transform: scale(0.98);
     }
   }
+  &__link {
+    color: $color-pink;
+  }
+  &__iconGeo {
+    margin-right: 3px;
+    fill: currentColor;
+  }
 }
