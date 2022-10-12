@@ -104,13 +104,16 @@ export function getEventModalMarkup(data) {
       </div>
       <div class="modal__mainPart">
         <div class="modal__textRight1">
-          <img
-            class="modal__imgBig"
-            src="${imgUrl}"
-            alt="${who}"
-            width="427px"
-            height="326px"
-          />
+          <div class="modal__imgBig loading-box">
+            <img
+              class="loading-box__img loading-box__img--small"
+              src="${imgUrlSmall}"
+              data-large="${imgUrl}"
+              alt="${who}"
+              width="427px"
+              height="326px"
+            />
+          </div>
           <h2 class="modal__title">INFO</h2>
           <p class="modal__text">${infoCheck}</</p>
           <h2 class="modal__title">WHEN</h2>

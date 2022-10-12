@@ -4,6 +4,7 @@ import './js/module/pagination';
 import './js/module/searchForm';
 import './js/animation/header';
 import './js/module/preloader';
+import './js/module/blurImgLoading';
 import { renderEventsWithPagination } from './js/module/renderEventsWithPagination';
 import { Notify } from 'notiflix';
 
