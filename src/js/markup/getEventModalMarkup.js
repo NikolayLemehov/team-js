@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix';
+import defaultImg from '../../images/no-found-image.png';
 
 function makeFirstLetterBig(string) {
   if (string !== undefined) {
@@ -17,8 +18,6 @@ function isExists(
     return text;
   }
 }
-const defaultImg =
-  'https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg';
 
 // function isExistsImg(cb) {
 //   const url = defaultImg;
@@ -138,7 +137,8 @@ export function getEventModalMarkup(data) {
 }
 
 function standardPricee(priceRanges) {
-  if (!priceRanges) return '';
+  if (!priceRanges)
+    return '<p class="modal__text">Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Check back later</p>';
   const priceStandardType = makeFirstLetterBig(
     isExists(() => priceRanges[0].type, '')
   );
@@ -146,7 +146,7 @@ function standardPricee(priceRanges) {
   const max = priceRanges[0].max;
   const currency = priceRanges[0].currency;
 
-  const text = priceStandardType
+  return priceStandardType
     ? `<p class="modal__text">${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
         <button class="modal__btnBlue" type="button">
           BUY TICKETS
