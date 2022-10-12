@@ -26,6 +26,25 @@ function onError(img) {
   img.src = 'default url'
 }
 
+const imgSmall = document.querySelectorAll('.loading');
+
+const loadImage = () => {
+  for (let i = 0; i < imgSmall.length; i++) {
+    const imgLarge = new Image();
+    imgLarge.src = imgSmall[i].dataset.large;
+    imgLarge.addEventListener('load', () => {
+      imgLarge.classList.add('onload');
+      setTimeout(
+        () => {
+          imgSmall[i].classList.add('onload');
+        }, 650);
+    }, false);
+    imgSmall[i].parentNode.appendChild(imgLarge);
+  }
+}
+
+loadImage();
+
 
 // function loadImg(img, num) {
 //   if (img.complete) {
