@@ -57,7 +57,7 @@ export function getEventModalMarkup(data) {
 
   //when
   const localDate = isExists(() => dates.start.localDate);
-  const localTime = isExists(() => dates.start.localTime);
+  const localTime = isExists(() => dates.start.localTime.slice(0, -3));
   const timezone = isExists(() => dates.timezone);
 
   //where
@@ -113,7 +113,7 @@ export function getEventModalMarkup(data) {
           <p class="modal__text">${infoCheck}</</p>
           <h2 class="modal__title">WHEN</h2>
           <p class="modal__textMini">${localDate}</p>
-          <p class="modal__text">${localTime}(${timezone})</p>
+          <p class="modal__text">${localTime} (${timezone})</p>
           <div>
             <h2 class="modal__title">WHERE</h2>
             <p class="modal__textMini">${city}, ${country} </p>
