@@ -1,0 +1,25 @@
+.title__part {
+  width: 100%;
+  position: absolute;
+  left: 500px;
+
+  @include mb(tab) {
+    left: 800px;
+  }
+
+  @include mb(desk) {
+    left: 1000px;
+  }
+
+  &--second {
+    top: 22px;
+
+    @include mb(tab) {
+      top: 37px;
+    }
+
+    @include mb(desk) {
+      top: 61px;
+    }
+  }
+}
