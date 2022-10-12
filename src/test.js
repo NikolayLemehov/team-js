@@ -1,3 +1,5 @@
+import symbolDefs from '../../images/symbol-defs.svg';
+
 const img = document.querySelector('.test-img1')
 const img2 = document.querySelector('.test-img2')
 const img3 = document.querySelector('.test-img3')
