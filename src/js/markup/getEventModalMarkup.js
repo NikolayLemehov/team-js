@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix';
+import defaultImg from '../../images/no-found-image.png';
 
 function makeFirstLetterBig(string) {
   if (string !== undefined) {
@@ -17,8 +18,7 @@ function isExists(
     return text;
   }
 }
-const defaultImg =
-  'https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg';
+const defaultImg = './images/no-found-image.png';
 
 // function isExistsImg(cb) {
 //   const url = defaultImg;
