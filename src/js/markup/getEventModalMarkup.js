@@ -18,7 +18,6 @@ function isExists(
     return text;
   }
 }
-const defaultImg = './images/no-found-image.png';
 
 // function isExistsImg(cb) {
 //   const url = defaultImg;
