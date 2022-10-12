@@ -1,4 +1,6 @@
 import { Notify } from 'notiflix';
+import defaultImg from '../../images/no-found-image.png';
+import symbolDefs from '../../images/symbol-defs.svg';
 
 function makeFirstLetterBig(string) {
   if (string !== undefined) {
@@ -17,8 +19,6 @@ function isExists(
     return text;
   }
 }
-const defaultImg =
-  'https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg';
 
 // function isExistsImg(cb) {
 //   const url = defaultImg;
@@ -47,6 +47,7 @@ function getBiggestBigImg(images = []) {
 export function getEventModalMarkup(data) {
   const { images, info, dates, _embedded, priceRanges } = data;
 
+  console.log(data);
   //images
   const imgUrl = getBiggestBigImg(images);
   const imgUrlSmall = getBiggestSmallImg(images);
@@ -56,13 +57,15 @@ export function getEventModalMarkup(data) {
 
   //when
   const localDate = isExists(() => dates.start.localDate);
-  const localTime = isExists(() => dates.start.localTime);
+  const localTime = isExists(() => dates.start.localTime.slice(0, -3));
   const timezone = isExists(() => dates.timezone);
 
   //where
   const country = isExists(() => _embedded.venues[0].country.name);
   const city = isExists(() => _embedded.venues[0].city.name);
   const place = isExists(() => _embedded.venues[0].name);
+  const latitude = isExists(() => _embedded.venues[0].location.latitude);
+  const longitude = isExists(() => _embedded.venues[0].location.longitude);
 
   //who
   const who = isExists(() => _embedded.attractions[0].name);
@@ -78,7 +81,9 @@ export function getEventModalMarkup(data) {
 
   function isExistsCheckVip() {
     return checkVipExists > 0
-      ? `<p class="modal__text">${priceRanges[1].type} ${priceRanges[1].min}-${priceRanges[1].max} ${priceRanges[1].currency}</p><div class="modal__buyTicketsBtn">
+      ? `<p class="modal__text"><svg class="modal__iconTicket" width="29" height="20">
+                <use href="${symbolDefs}#icon-ticket"></use>
+              </svg> ${priceRanges[1].type} ${priceRanges[1].min}-${priceRanges[1].max} ${priceRanges[1].currency}</p><div class="modal__buyTicketsBtn">
           <button class="modal__btnBlue" type="button">
             BUY TICKETS
           </button>
@@ -110,11 +115,13 @@ export function getEventModalMarkup(data) {
           <p class="modal__text">${infoCheck}</</p>
           <h2 class="modal__title">WHEN</h2>
           <p class="modal__textMini">${localDate}</p>
-          <p class="modal__text">${localTime}(${timezone})</p>
+          <p class="modal__text">${localTime} (${timezone})</p>
           <div>
             <h2 class="modal__title">WHERE</h2>
             <p class="modal__textMini">${city}, ${country} </p>
-            <p class="modal__text">${place}</p>
+            <p class="modal__text"><a class="modal__link" href="https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}" target="_blank"><svg class="card__iconGeo" width="12" height="12">
+                <use href="${symbolDefs}#locationVector"></use>
+              </svg>${place}</a></p>
           </div>
           <div class="modal__whoSection">
             <h2 class="modal__title">WHO</h2>
@@ -129,7 +136,6 @@ export function getEventModalMarkup(data) {
             </div>
             <div class="modal__vipPrice">
               ${vipPrice}
-
             </div>
           </div>
         </div>
@@ -138,7 +144,8 @@ export function getEventModalMarkup(data) {
 }
 
 function standardPricee(priceRanges) {
-  if (!priceRanges) return '';
+  if (!priceRanges)
+    return '<p class="modal__text">Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Check back later</p>';
   const priceStandardType = makeFirstLetterBig(
     isExists(() => priceRanges[0].type, '')
   );
@@ -146,8 +153,10 @@ function standardPricee(priceRanges) {
   const max = priceRanges[0].max;
   const currency = priceRanges[0].currency;
 
-  const text = priceStandardType
-    ? `<p class="modal__text">${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
+  return priceStandardType
+    ? `<p class="modal__text"><svg class="card__iconTicket" width="29" height="20">
+                <use href="${symbolDefs}#icon-ticket"></use>
+              </svg> ${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
         <button class="modal__btnBlue" type="button">
           BUY TICKETS
         </button>

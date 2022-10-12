@@ -26,15 +26,10 @@
 .card__item {
   position: relative;
   flex-basis: calc(((100% - 20px)) / 2);
-  max-height: 208px;
+  height: 100%;
 
   @include mb(tab) {
     flex-basis: calc((100% - 96px) / 4);
-    max-height: 223px;
-  }
-
-  @include mb(desk) {
-    max-height: 320px;
   }
 }
 
