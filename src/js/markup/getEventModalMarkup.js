@@ -46,7 +46,6 @@ function getBiggestBigImg(images = []) {
 
 export function getEventModalMarkup(data) {
   const { images, info, dates, _embedded, priceRanges } = data;
-  console.log(data);
 
   //images
   const imgUrl = getBiggestBigImg(images);
@@ -130,7 +129,7 @@ export function getEventModalMarkup(data) {
             </div>
             <div class="modal__vipPrice">
               ${vipPrice}
-                
+
             </div>
           </div>
         </div>
@@ -145,7 +144,6 @@ function standardPricee(priceRanges) {
   );
   const min = priceRanges[0].min;
   const max = priceRanges[0].max;
-  console.log(`heyyyy`);
   const currency = priceRanges[0].currency;
 
   const text = priceStandardType
