@@ -37,7 +37,6 @@ button {
     fill: $color-han-purple;
     border-radius: 100%;
     border: 1px solid rgba(220, 86, 197, 0.3);
-    box-shadow: 0 0 8px rgba(220, 86, 197, 0.3);
     transform: rotate(360deg);
     opacity: 1;
     box-shadow: 0 0 1px 5px rgba(#8a3b58, 0.4), 0 0 1px 10px rgba(#8a3b58, 0.1),
@@ -52,33 +51,19 @@ button {
     fill: $color-han-purple;
     display: block;
   }
-
-  &:after {
-    transition: transform(scale(0.7) rotate(-45deg));
-    transition: transition-delay(100ms);
-  }
 }
 
 //test
-@keyframes zoom {
-  0% {
-    opacity: 0;
-    transform: scale(0, 0);
-  }
-  30% {
-    opacity: 0;
-  }
-  100% {
-    bottom: 0;
-  }
-}
+
 //endtest
 .modal {
-  padding-top: 480px;
+  // padding-top: 480px;
   z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
 
@@ -90,14 +75,26 @@ button {
   display: block;
   animation: zoom 0.7s;
   animation-fill-mode: forwards;
-  // Main container
 
+  @include mb(mob-only) {
+    padding: 100px 0;
+  }
+  @include mb(tab) {
+    padding: 160px 0;
+  }
+  @include mb(desk) {
+    padding: 200px 0;
+  }
+  // Main container
   &__container {
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: auto 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // transform: translate(-50%, -50%);
+    margin: auto;
+
     background-color: $color-lavender-blush;
     @include mb(mob-only) {
       padding-left: 16px;
@@ -178,9 +175,10 @@ button {
 
   &__mainPart {
     // display: flex;
-
+    @include mb(mob-only) {
+      text-align: center;
+    }
     @include mb(tab) {
-      padding-bottom: 16px;
       gap: 32px;
     }
   }
@@ -238,6 +236,7 @@ button {
       line-height: 1.25;
       display: flex;
       justify-content: center;
+      padding-bottom: 16px;
     }
     @include mb(tab) {
       padding-bottom: 16px;
@@ -270,16 +269,20 @@ button {
   //part of modal where you can find prices
 
   &__priceSection {
-    // margin-top: 20px;
     display: flex;
     flex-direction: column;
   }
 
   &__priceAndBtn {
     display: flex;
-    gap: 60px;
+    // gap: 60px;
+
     @include mb(mob-only) {
       flex-direction: column;
+      padding-bottom: 24px;
+    }
+    @include mb(tab) {
+      padding-bottom: 0px;
     }
   }
 
@@ -318,6 +321,7 @@ button {
     outline: none;
     @include mb(mob-only) {
       margin-bottom: 100px;
+      padding-top: 0px;
     }
   }
 
@@ -338,6 +342,7 @@ button {
       line-height: 1.25;
       padding-left: 0;
       padding-right: 0;
+      margin-bottom: 40px;
     }
     &:is(:hover, :focus) {
       // border-radius: 1em;
