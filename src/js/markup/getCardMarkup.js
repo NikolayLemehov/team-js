@@ -1,6 +1,6 @@
 import symbolDefs from '../../images/symbol-defs.svg';
+import defaultImg from '../../images/no-found-image.png';
 
-const defaultImg = '';
 const MIN_IMG_WIDTH = 267;
 
 function getNormSize(images = []) {
