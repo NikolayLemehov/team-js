@@ -53,18 +53,20 @@ refs.modal.addEventListener('click', onBackdropClick);
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
     toggleModal();
+    window.removeEventListener('keydown', onEscKeyPress);
   }
 }
 
 refs.authorBtn.addEventListener('click', searchByAuthor);
 
 async function searchByAuthor(e) {
+  window.removeEventListener('keydown', onEscKeyPress);
   toggleModal();
   const data = {
     value: e.target.dataset.name,
     countryCode: '',
   };
-  select.reset()
+  select.reset();
   await renderEventsWithPagination(data).catch(e => Notify.failure(e.message));
-  refs.inputResearch.value = data.value
+  refs.inputResearch.value = data.value;
 }

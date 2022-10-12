@@ -20,7 +20,6 @@ cardListRef.addEventListener('click', e => {
     .then(res => {
       renderModal(res.data);
       toggleModal();
-      // onEscKeyPress;
     })
-    .catch((e) => Notify.failure(`heyerro ${e.message}`));
+    .catch(e => Notify.failure(`heyerro ${e.message}`));
 });
