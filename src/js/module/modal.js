@@ -26,11 +26,21 @@ export function toggleModal() {
     refs.body.style.overflow = 'auto';
   }
 }
-
+function ifAuthorExists(cb) {
+  try {
+    return cb();
+  } catch {
+    return false;
+  }
+}
 export function renderModal(data) {
+  const name =
+    ifAuthorExists(() => data._embedded.attractions[0].name) ||
+    ifAuthorExists(() => data.name) ||
+    'Unknown author';
   removeChildren(refs.modalContent);
   refs.modalContent.insertAdjacentHTML('afterbegin', getEventModalMarkup(data));
-  refs.authorBtn.dataset.name = data._embedded.attractions[0].name;
+  refs.authorBtn.dataset.name = name;
 }
 
 //closes with ESC button
