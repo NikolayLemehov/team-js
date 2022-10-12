@@ -3,7 +3,6 @@
 .gallery__pagination {
   display: flex;
   justify-content: center;
-  height: 30px;
 }
 
 .pagination {
@@ -11,6 +10,14 @@
   display: flex;
   gap: 25px;
   align-items: center;
+
+  @include mb(mob-only) {
+    row-gap: 0px;
+    flex-wrap: wrap;
+    line-height: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .pagination__btn {

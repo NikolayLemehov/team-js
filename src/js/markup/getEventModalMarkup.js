@@ -1,14 +1,17 @@
 import { Notify } from 'notiflix';
+import defaultImg from '../../images/no-found-image.png';
+import symbolDefs from '../../images/symbol-defs.svg';
 
 function makeFirstLetterBig(string) {
   if (string !== undefined) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-  } else return ifItsExists;
+  } else return isExists;
 }
 
-function ifItsExists(cb) {
-  const text =
-    'Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Better call Soul📱';
+function isExists(
+  cb,
+  text = 'Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Check back later'
+) {
   try {
     if (!cb()) return text;
     return cb();
@@ -16,10 +19,8 @@ function ifItsExists(cb) {
     return text;
   }
 }
-const defaultImg =
-  'https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg';
 
-// function ifItsExistsImg(cb) {
+// function isExistsImg(cb) {
 //   const url = defaultImg;
 //   try {
 //     if (!cb()) return url;
@@ -46,55 +47,51 @@ function getBiggestBigImg(images = []) {
 export function getEventModalMarkup(data) {
   const { images, info, dates, _embedded, priceRanges } = data;
 
+  console.log(data);
   //images
   const imgUrl = getBiggestBigImg(images);
   const imgUrlSmall = getBiggestSmallImg(images);
 
   //info
-  const infoCheck = ifItsExists(() => info);
+  const infoCheck = isExists(() => info);
 
   //when
-  const localDate = ifItsExists(() => dates.start.localDate);
-  const localTime = ifItsExists(() => dates.start.localTime);
-  const timezone = ifItsExists(() => dates.timezone);
+  const localDate = isExists(() => dates.start.localDate);
+  const localTime = isExists(() => dates.start.localTime.slice(0, -3));
+  const timezone = isExists(() => dates.timezone);
 
   //where
-  const country = ifItsExists(() => _embedded.venues[0].country.name);
-  const city = ifItsExists(() => _embedded.venues[0].city.name);
-  const place = ifItsExists(() => _embedded.venues[0].name);
+  const country = isExists(() => _embedded.venues[0].country.name);
+  const city = isExists(() => _embedded.venues[0].city.name);
+  const place = isExists(() => _embedded.venues[0].name);
+  const latitude = isExists(() => _embedded.venues[0].location.latitude);
+  const longitude = isExists(() => _embedded.venues[0].location.longitude);
 
   //who
-  const who = ifItsExists(() => _embedded.attractions[0].name);
+  const who = isExists(() => _embedded.attractions[0].name);
 
   //price standard
-  const priceStandardType = makeFirstLetterBig(priceRanges[0].type);
 
-  function standardPricee() {
-    return priceStandardType
-      ? `<p class="modal__text">${priceStandardType} ${priceRanges[0].min}-${priceRanges[0].max} ${priceRanges[0].currency}</p><div class="modal__buyTicketsBtn">
-        <button class="modal__btnBlue" type="button">
-          BUY TICKETS
-        </button>
-      </div>`
-      : '';
-  }
-
-  const standardPrice = standardPricee();
+  const standardPrice = standardPricee(priceRanges);
 
   //price VIP
-  const checkVipExists = priceRanges.findIndex(option => option.type === 'VIP');
+  const checkVipExists = priceRanges
+    ? priceRanges.findIndex(option => option.type === 'VIP')
+    : '';
 
-  function ifItsExistsCheckVip() {
-    return checkVipExists < 0
-      ? ''
-      : `<p class="modal__text">${priceRanges[1].type} ${priceRanges[1].min}-${priceRanges[1].max} ${priceRanges[1].currency}</p><div class="modal__buyTicketsBtn">
+  function isExistsCheckVip() {
+    return checkVipExists > 0
+      ? `<p class="modal__text"><svg class="modal__iconTicket" width="29" height="20">
+                <use href="${symbolDefs}#icon-ticket"></use>
+              </svg> ${priceRanges[1].type} ${priceRanges[1].min}-${priceRanges[1].max} ${priceRanges[1].currency}</p><div class="modal__buyTicketsBtn">
           <button class="modal__btnBlue" type="button">
             BUY TICKETS
           </button>
-        </div>`;
+        </div>`
+      : '';
   }
 
-  const vipPrice = ifItsExistsCheckVip();
+  const vipPrice = isExistsCheckVip();
 
   return `
       <div class="modal__header">
@@ -118,11 +115,13 @@ export function getEventModalMarkup(data) {
           <p class="modal__text">${infoCheck}</</p>
           <h2 class="modal__title">WHEN</h2>
           <p class="modal__textMini">${localDate}</p>
-          <p class="modal__text">${localTime}(${timezone})</p>
+          <p class="modal__text">${localTime} (${timezone})</p>
           <div>
             <h2 class="modal__title">WHERE</h2>
             <p class="modal__textMini">${city}, ${country} </p>
-            <p class="modal__text">${place}</p>
+            <p class="modal__text"><a class="modal__link" href="https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}" target="_blank"><svg class="card__iconGeo" width="12" height="12">
+                <use href="${symbolDefs}#locationVector"></use>
+              </svg>${place}</a></p>
           </div>
           <div class="modal__whoSection">
             <h2 class="modal__title">WHO</h2>
@@ -142,4 +141,25 @@ export function getEventModalMarkup(data) {
         </div>
       </div>
 `;
+}
+
+function standardPricee(priceRanges) {
+  if (!priceRanges)
+    return '<p class="modal__text">Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Check back later</p>';
+  const priceStandardType = makeFirstLetterBig(
+    isExists(() => priceRanges[0].type, '')
+  );
+  const min = priceRanges[0].min;
+  const max = priceRanges[0].max;
+  const currency = priceRanges[0].currency;
+
+  return priceStandardType
+    ? `<p class="modal__text"><svg class="card__iconTicket" width="29" height="20">
+                <use href="${symbolDefs}#icon-ticket"></use>
+              </svg> ${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
+        <button class="modal__btnBlue" type="button">
+          BUY TICKETS
+        </button>
+      </div>`
+    : '';
 }
