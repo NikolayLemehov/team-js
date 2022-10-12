@@ -15,11 +15,12 @@ cardListRef.addEventListener('click', e => {
 
   window.addEventListener('keydown', onEscKeyPress);
 
-  eventApi
-    .fetchEvent(id)
-    .then(res => {
-      renderModal(res.data);
-      toggleModal();
-    })
-    .catch(e => Notify.failure(`heyerro ${e.message}`));
+  eventApi.fetchEvent(id).then(res => {
+    renderModal(res.data);
+    toggleModal();
+  });
+  //     .catch(e => {
+  //       Notify.failure(`inEventListErrorRender ${e.message}`);
+  //       console.trace(e);
+  //     });
 });
