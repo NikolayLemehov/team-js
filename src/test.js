@@ -1,7 +1,4 @@
-import defaultImg from './images/hero_bg@1x_mob.jpg'
-
-const label = 'test';
-console.time(label);
+import defaultImg from './images/hero_bg@1x_mob.jpg';
 
 // const img = document.querySelector('.test-img1')
 // const img2 = document.querySelector('.test-img2')
@@ -38,26 +35,17 @@ const loadImage = () => {
     const imgLarge = new Image();
     imgLarge.dataset.largeNew = '';
     imgLarge.src = imgSmall[i].dataset.large;
-    console.log('add src');
-    console.timeLog(label);
 
     imgLarge.addEventListener('load', () => {
 
-      console.log('add load');
-      console.timeLog(label);
       imgLarge.classList.add('onload');
 
-      setTimeout(
-        () => {
-          console.log('timeout');
-          console.timeLog(label);
-          imgSmall[i].classList.add('onload');
-        }, 650);
+      setTimeout(() => {
+        imgSmall[i].classList.add('onload');
+      }, 650);
 
-      imgSmall[i].parentNode.appendChild(imgLarge);
     }, false);
-    console.log('append');
-    console.timeLog(label);
+    imgSmall[i].parentNode.appendChild(imgLarge);
   }
 };
 
