@@ -86,23 +86,23 @@
   top: 9px;
   object-fit: cover;
 
-  max-width: 120px;
-  max-height: 120px;
+  width: 120px;
+  height: 120px;
 
   border-radius: 50px 0px;
 
   transition: box-shadow $transition, transform $transition;
 
   @media screen and (min-width: 768px) {
-    max-width: 141px;
-    max-height: 120px;
+    width: 141px;
+    height: 120px;
 
     top: 10px;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 267px;
-    max-height: 220px;
+    width: 267px;
+    height: 220px;
 
     top: 19px;
   }
@@ -190,4 +190,5 @@
 .card__img {
   object-fit: cover;
   width: 100%;
+  height: 100%;
 }
