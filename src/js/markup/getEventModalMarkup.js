@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix';
 import defaultImg from '../../images/no-found-image.png';
+import symbolDefs from '../../images/symbol-defs.svg';
 
 function makeFirstLetterBig(string) {
   if (string !== undefined) {
@@ -116,7 +117,9 @@ export function getEventModalMarkup(data) {
           <div>
             <h2 class="modal__title">WHERE</h2>
             <p class="modal__textMini">${city}, ${country} </p>
-            <p class="modal__text"><a href="https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}" target="_blank">${place}</a></p>
+            <p class="modal__text"><a class="modal__link" href="https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}" target="_blank"><svg class="card__iconGeo" width="12" height="12">
+                <use href="${symbolDefs}#locationVector"></use>
+              </svg>${place}</a></p>
           </div>
           <div class="modal__whoSection">
             <h2 class="modal__title">WHO</h2>
