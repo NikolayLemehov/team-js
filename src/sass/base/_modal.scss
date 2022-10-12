@@ -99,7 +99,6 @@ button {
     transform: translate(-50%, -50%);
     margin: auto 0;
     background-color: $color-lavender-blush;
-    outline: 1px solid red;
     @include mb(mob-only) {
       padding-left: 16px;
       padding-right: 21px;
