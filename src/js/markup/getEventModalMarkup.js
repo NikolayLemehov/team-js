@@ -1,3 +1,5 @@
+import { Notify } from 'notiflix';
+
 function makeFirstLetterBig(string) {
   if (string !== undefined) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -42,7 +44,6 @@ function getBiggestBigImg(images = []) {
 }
 
 export function getEventModalMarkup(data) {
-  console.log(data);
   const { images, info, dates, _embedded, priceRanges } = data;
 
   //images

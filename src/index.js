@@ -3,10 +3,6 @@ import './js/module/eventlist';
 import './js/module/pagination';
 import './js/module/searchForm';
 import { renderEventsWithPagination } from './js/module/renderEventsWithPagination';
+import { Notify } from 'notiflix';
 
-const startLoading = () => console.log('start loading');
-const stopLoading = () => console.log('stop loading');
-
-const renderData = { startLoading, stopLoading };
-
-renderEventsWithPagination(renderData).catch(console.log);
+renderEventsWithPagination().catch(e => Notify.failure(e.message));
