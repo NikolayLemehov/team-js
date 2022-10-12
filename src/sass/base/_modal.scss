@@ -37,7 +37,6 @@ button {
     fill: $color-han-purple;
     border-radius: 100%;
     border: 1px solid rgba(220, 86, 197, 0.3);
-    box-shadow: 0 0 8px rgba(220, 86, 197, 0.3);
     transform: rotate(360deg);
     opacity: 1;
     box-shadow: 0 0 1px 5px rgba(#8a3b58, 0.4), 0 0 1px 10px rgba(#8a3b58, 0.1),
@@ -51,11 +50,6 @@ button {
     // height: 25px;
     fill: $color-han-purple;
     display: block;
-  }
-
-  &:after {
-    transition: transform(scale(0.7) rotate(-45deg));
-    transition: transition-delay(100ms);
   }
 }
 
