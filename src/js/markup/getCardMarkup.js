@@ -16,7 +16,7 @@ export function getCardMarkup(data) {
   return `<li class="card__item" data-id="${data.id}">
           <a href="" class="card__link">
             <div class="card__thumb">
-              <img src="${imgUrl}" alt="card" width="267" height="220" class="card__img">
+              <img src="${imgUrl}" alt="card ${data.name}" width="267" height="220" class="card__img" loading="lazy">
             </div>
           </a>
           <div class="card__info">
