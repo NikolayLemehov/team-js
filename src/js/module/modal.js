@@ -2,9 +2,9 @@ import { getEventModalMarkup } from '../markup/getEventModalMarkup';
 import { removeChildren } from '../utils/removeChildren';
 import { renderEventsWithPagination } from './renderEventsWithPagination';
 import { select } from './select';
+import { Notify } from 'notiflix';
 
 const refs = {
-  // openModalBtns: document.querySelectorAll('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
   modalContent: document.querySelector('.modal__content'),
@@ -22,7 +22,6 @@ export function toggleModal() {
     // Disable scroll
     refs.body.style.overflow = 'hidden';
   } else {
-    // console.log('fu');
     // Enable scroll
     refs.body.style.overflow = 'auto';
   }
@@ -52,10 +51,6 @@ function removeEscListener() {
 refs.modal.addEventListener('click', onBackdropClick);
 
 function onBackdropClick(event) {
-  // console.log('click');
-
-  // console.log(event.currentTarget);
-  // console.log(event.target);
   if (event.currentTarget === event.target) {
     toggleModal();
   }
@@ -70,5 +65,6 @@ async function searchByAuthor(e) {
     countryCode: '',
   };
   select.reset()
-  await renderEventsWithPagination(data);
+  await renderEventsWithPagination(data).catch(e => Notify.failure(e.message));
+  refs.inputResearch.value = data.value
 }
