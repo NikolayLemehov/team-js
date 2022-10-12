@@ -5,7 +5,7 @@ import { eventApi } from '../api/EventApi';
 // const eventApi = new EventApi();
 
 const refs = {
-  searchForm: document.querySelector('.search__form'),
+  searchForm: document.querySelector('.form'),
   selectCountry: document.querySelector('.country__code'),
   addCard: document.querySelector('.card__add'),
 };

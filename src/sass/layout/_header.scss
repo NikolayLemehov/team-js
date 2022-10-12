@@ -42,77 +42,6 @@
       margin-bottom: 24px;
     }
   }
-  // &__overlay {
-  //   position: relative;
-  //   max-width: 1280px;
-  //   height: 364px;
-
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  //   background-size: cover;
-
-  //   z-index: -2;
-
-  //   //  background: rgba(11, 11, 11, 0.5);
-  //   //  border: 1px solid $color-default-black;
-  //   //  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  //   background-image: linear-gradient(
-  //       to right,
-  //       rgba(11, 11, 11, 0.5),
-  //       rgba(11, 11, 11, 0.5)
-  //     ),
-  //     url(../images/hero_bg@1x_desk.jpg);
-
-  //   @include retina {
-  //     background-image: linear-gradient(
-  //         to right,
-  //         rgba(11, 11, 11, 0.5),
-  //         rgba(11, 11, 11, 0.5)
-  //       ),
-  //       url(../images/hero_bg@2x_desk.jpg);
-  //   }
-
-  //   @include mb(tab-only) {
-  //     background-image: linear-gradient(
-  //         to right,
-  //         rgba(11, 11, 11, 0.5),
-  //         rgba(11, 11, 11, 0.5)
-  //       ),
-  //       url(../images/hero_bg@1x_tab.jpg);
-
-  //     @include retina {
-  //       background-image: linear-gradient(
-  //           to right,
-  //           rgba(11, 11, 11, 0.5),
-  //           rgba(11, 11, 11, 0.5)
-  //         ),
-  //         url(../images/hero_bg@2x_tab.jpg);
-  //     }
-  //   }
-
-  //   @include mb(mob-only) {
-  //     background-image: linear-gradient(
-  //         to right,
-  //         rgba(11, 11, 11, 0.5),
-  //         rgba(11, 11, 11, 0.5)
-  //       ),
-  //       url(../images/hero_bg@2x_mob.jpg);
-
-  //     @include retina {
-  //       background-image: linear-gradient(
-  //           to right,
-  //           rgba(11, 11, 11, 0.5),
-  //           rgba(11, 11, 11, 0.5)
-  //         ),
-  //         url(../images/hero_bg@2x_mob.jpg);
-  //     }
-  //   }
-
-  //   @include mb(desk){
-  //     height: 446px;
-  //   }
-  // }
 
   &__gradient {
     max-width: 1280px;
@@ -126,7 +55,7 @@
   }
 }
 
-.search__form {
+.form {
   display: flex;
   justify-content: center;
   gap: 32px;
@@ -202,7 +131,7 @@
   }
 }
 
-.button__search {
+.button-search {
   padding: 14px 32px;
   width: 76px;
   height: 40px;
@@ -227,7 +156,7 @@
   }
 }
 
-.search__icon {
+.search-icon {
   width: 15px;
   height: 15px;
 }
