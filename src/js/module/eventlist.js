@@ -1,5 +1,6 @@
 import { toggleModal, renderModal, onEscKeyPress } from './modal';
 import { eventApi } from '../api/EventApi';
+import { Notify } from 'notiflix';
 
 const cardListRef = document.querySelector('.card__list');
 
@@ -12,9 +13,6 @@ cardListRef.addEventListener('click', e => {
 
   const id = cardItem.dataset.id;
 
-  // console.log('id');
-
-  // console.log(id);
   window.addEventListener('keydown', onEscKeyPress);
 
   eventApi
@@ -22,9 +20,7 @@ cardListRef.addEventListener('click', e => {
     .then(res => {
       renderModal(res.data);
       toggleModal();
-      onEscKeyPress;
+      // onEscKeyPress;
     })
-    .catch(function () {
-      console.log('heyerro');
-    });
+    .catch((e) => Notify.failure(`heyerro ${e.message}`));
 });
