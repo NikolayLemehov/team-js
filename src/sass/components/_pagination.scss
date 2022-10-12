@@ -4,6 +4,10 @@
   display: flex;
   justify-content: center;
   height: 30px;
+
+  @include mb(mob-only) {
+    height: 100px;
+  }
 }
 
 .pagination {
@@ -11,6 +15,15 @@
   display: flex;
   gap: 25px;
   align-items: center;
+
+  @include mb(mob-only) {
+    width: 350px;
+    row-gap: 0px;
+    flex-wrap: wrap;
+    line-height: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .pagination__btn {
