@@ -9,10 +9,21 @@ body {
   font-size: 16px;
   color: $color-white;
   background-color: $color-black2;
-
   background-image: url(../images/main-bg/noise-body.png);
   background-repeat: repeat;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+  min-height: 100%;
 }
 
 .visually-hidden {
