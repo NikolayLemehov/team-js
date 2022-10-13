@@ -97,9 +97,14 @@ export class Select {
     });
 
     this.options.onSelect ? this.options.onSelect(this.current) : null;
+    this.close();
   }
 
   select(code, index) {
+    if (Number(index) === 1) {
+      this.reset();
+      return;
+    }
     this.$nativeSelect.selectedIndex = index;
     this.selectedCode = code;
     this.$name.textContent = this.current.name;
