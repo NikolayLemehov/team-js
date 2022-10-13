@@ -89,10 +89,10 @@ export class Select {
   }
 
   reset() {
-    this.$nativeSelect.selectedIndex = 0;
+    this.$nativeSelect.selectedIndex = 1;
     this.selectedCode = '';
-    this.$name.textContent = this.options.placeholder;
-    this.$name.classList.remove('selected');
+    this.$name.textContent = this.optionList[1].name;
+    // this.$name.classList.remove('selected');
     this.$el.querySelectorAll('[data-type="item"]').forEach(el => {
       el.classList.remove('selected');
     });

@@ -1,5 +1,8 @@
 export const countries = [
   {
+    code: '', name: 'All countries'
+  },
+  {
     code: 'US', name: 'United States Of America'
   },
   {
