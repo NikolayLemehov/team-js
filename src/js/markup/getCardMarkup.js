@@ -17,7 +17,7 @@ export function getCardMarkup(data) {
             <a href="" class="card__link">
               <div class="card__thumb loading-box">
 
-                <img src="${imgUrl}" data-large="${imgUrl}" alt="card ${data.name}"
+                <img src="${imgUrl}" data-large="${imgUrl}" alt="${data.name}"
                   width="267" height="220"
                   class="card__img loading-box__img loading-box__img--small" loading="lazy">
               </div>
