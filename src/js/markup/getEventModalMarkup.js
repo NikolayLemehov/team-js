@@ -45,7 +45,7 @@ function getBiggestBigImg(images = []) {
 }
 
 export function getEventModalMarkup(data) {
-  const { images, info, dates, _embedded, priceRanges } = data;
+  const { images, info, dates, _embedded, priceRanges, url } = data;
 
   //images
   const imgUrl = getBiggestBigImg(images);
@@ -70,9 +70,30 @@ export function getEventModalMarkup(data) {
   const who = isExists(() => _embedded.attractions[0].name);
 
   //price standard
+  const urlTicket = isExists(() => url);
 
   const standardPrice = standardPricee(priceRanges);
 
+  function standardPricee(priceRanges) {
+    if (!priceRanges)
+      return '<p class="modal__text">Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Check back later</p>';
+    const priceStandardType = makeFirstLetterBig(
+      isExists(() => priceRanges[0].type, '')
+    );
+    const min = priceRanges[0].min;
+    const max = priceRanges[0].max;
+    const currency = priceRanges[0].currency;
+
+    return priceStandardType
+      ? `<p class="modal__text"><svg class="card__iconTicket" width="29" height="20">
+                <use href="${symbolDefs}#icon-ticket"></use>
+              </svg> ${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
+        <a class="modal__btnBlue"  href="${urlTicket}">
+          BUY TICKETS
+        </a>
+      </div>`
+      : '';
+  }
   //price VIP
   const checkVipExists = priceRanges
     ? priceRanges.findIndex(option => option.type === 'VIP')
@@ -121,7 +142,7 @@ export function getEventModalMarkup(data) {
           <div>
             <h2 class="modal__title">WHERE</h2>
             <p class="modal__textMini">${city}, ${country} </p>
-            <p class="modal__text"><a class="modal__link" href="https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}" target="_blank"><svg class="card__iconGeo" width="12" height="12">
+            <p class="modal__text"><a class="modal__link" href="https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}" target="_blank"><svg class="card__iconGeo" width="12" height="12">
                 <use href="${symbolDefs}#locationVector"></use>
               </svg>${place}</a></p>
           </div>
@@ -143,25 +164,4 @@ export function getEventModalMarkup(data) {
         </div>
       </div>
 `;
-}
-
-function standardPricee(priceRanges) {
-  if (!priceRanges)
-    return '<p class="modal__text">Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Check back later</p>';
-  const priceStandardType = makeFirstLetterBig(
-    isExists(() => priceRanges[0].type, '')
-  );
-  const min = priceRanges[0].min;
-  const max = priceRanges[0].max;
-  const currency = priceRanges[0].currency;
-
-  return priceStandardType
-    ? `<p class="modal__text"><svg class="card__iconTicket" width="29" height="20">
-                <use href="${symbolDefs}#icon-ticket"></use>
-              </svg> ${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
-        <button class="modal__btnBlue" type="button">
-          BUY TICKETS
-        </button>
-      </div>`
-    : '';
 }
