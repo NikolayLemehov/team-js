@@ -64,6 +64,7 @@ export class Select {
       {code: '', name: this.options.placeholder},
       ...this.options.data
     ]
+    this.$el.querySelectorAll('[data-type="item"]')
   }
 
   clickHandler = (event) => {
@@ -100,11 +101,7 @@ export class Select {
     this.close();
   }
 
-  select(code, index) {
-    if (Number(index) === 1) {
-      this.reset();
-      return;
-    }
+  select(code = '', index) {
     this.$nativeSelect.selectedIndex = index;
     this.selectedCode = code;
     this.$name.textContent = this.current.name;
@@ -112,7 +109,7 @@ export class Select {
     this.$el.querySelectorAll('[data-type="item"]').forEach(el => {
       el.classList.remove('selected');
     });
-    this.$el.querySelector(`[data-code=${code}]`).classList.add('selected');
+    this.$el.querySelector(`[data-code="${code}"]`).classList.add('selected');
 
     this.options.onSelect ? this.options.onSelect(this.current) : null;
 
