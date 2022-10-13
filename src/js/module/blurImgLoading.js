@@ -6,6 +6,7 @@ const loadImage = ({detail}) => {
     imgLarge.dataset.largeNew = '';
     imgLarge.classList.add('loading-box__img', 'loading-box__img--large')
     imgLarge.src = imgSmall[i].dataset.large;
+    imgLarge.alt = imgSmall[i].alt;
 
     imgLarge.addEventListener('load', () => {
 
