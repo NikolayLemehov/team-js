@@ -18,9 +18,8 @@ cardListRef.addEventListener('click', e => {
   eventApi.fetchEvent(id).then(res => {
     renderModal(res.data);
     toggleModal();
-  });
-  //     .catch(e => {
-  //       Notify.failure(`inEventListErrorRender ${e.message}`);
-  //       console.trace(e);
-  //     });
+  })
+    .catch(e => {
+      Notify.failure(`inEventListErrorRender ${e.message}`);
+    });
 });

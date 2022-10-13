@@ -47,7 +47,6 @@ function getBiggestBigImg(images = []) {
 export function getEventModalMarkup(data) {
   const { images, info, dates, _embedded, priceRanges } = data;
 
-  console.log(data);
   //images
   const imgUrl = getBiggestBigImg(images);
   const imgUrlSmall = getBiggestSmallImg(images);
