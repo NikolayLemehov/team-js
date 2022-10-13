@@ -32,7 +32,8 @@ async function onPaginationBoxClick(e) {
     startLoading,
     stopLoading,
   };
-  renderEventsWithPagination(renderData).catch(e => Notify.failure(e.message));
+  await renderEventsWithPagination(renderData).catch(e => Notify.failure(e.message));
+  window.scroll(0, 0)
 }
 
 export function renderPagination(data) {
