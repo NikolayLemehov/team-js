@@ -19,25 +19,26 @@ export function getCardMarkup(data) {
   const href = latitude && longitude ? `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}` : '';
   const venuesName = getData(() => data._embedded.venues[0].name)
 
-  return `<li class="card__item" data-id="${data.id}">
-            <a href="" class="card__link">
-              <div class="card__thumb loading-box">
+  return (
+    `<li class="card__item" data-id="${data.id}">
+      <a href="" class="card__link">
+        <div class="card__thumb loading-box">
 
-                <img src="${imgUrl}" data-large="${imgUrl}" alt="${data.name}"
-                  width="267" height="220"
-                  class="card__img loading-box__img loading-box__img--small" loading="lazy">
-              </div>
-            </a>
-            <div class="card__info">
-              <h2 class="card__artist">${data.name}</h2>
-              <p class="card__data">${localDate}</p>
-              ${latitude && longitude ?
-                `<a class="card__address" href="${href}">
-                  <svg class="card__icon" width="22" height="32">
-                    <use href="${symbolDefs}#locationVector"></use>
-                  </svg>${venuesName} triam
-                </a>` : ''
-              }
-            </div>
-          </li>`;
+          <img src="${imgUrl}" data-large="${imgUrl}" alt="${data.name}"
+            width="267" height="220"
+            class="card__img loading-box__img loading-box__img--small" loading="lazy">
+        </div>
+      </a>
+      <div class="card__info">
+        <h2 class="card__artist">${data.name}</h2>
+        <p class="card__data">${localDate}</p>
+        ${latitude && longitude ?
+          `<a class="card__address" href="${href}">
+            <svg class="card__icon" width="22" height="32">
+              <use href="${symbolDefs}#locationVector"></use>
+            </svg>${venuesName}
+          </a>` : ``
+        }
+      </div>
+    </li>`);
 }
