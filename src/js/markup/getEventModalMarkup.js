@@ -48,7 +48,6 @@ export function getEventModalMarkup(data) {
   const localDate = isExists(() => dates.start.localDate);
   const localTime = isExists(() => dates.start.localTime.slice(0, -3));
   const timezone = isExists(() => dates.timezone);
-  console.log(data);
   //where
   const country = isExists(() => _embedded.venues[0].country.name);
   const city = isExists(() => _embedded.venues[0].city.name);
