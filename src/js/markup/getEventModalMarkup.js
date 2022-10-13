@@ -78,7 +78,7 @@ export function getEventModalMarkup(data) {
       ? `<p class="modal__text modal__standrdPrice"><svg class="modal__iconTicket" width="29" height="20">
                 <use href="${symbolDefs}#icon-ticket"></use>
               </svg> ${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
-        <a class="modal__btnBlue"  href="${urlTicket}">
+        <a class="modal__btnBlue"  href="${urlTicket}" target="_blank">
           BUY TICKETS
         </a>
       </div>`
