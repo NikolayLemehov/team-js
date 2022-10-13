@@ -45,9 +45,8 @@ function getBiggestBigImg(images = []) {
 }
 
 export function getEventModalMarkup(data) {
-  const { images, info, dates, _embedded, priceRanges } = data;
+  const { images, info, dates, _embedded, priceRanges, url } = data;
 
-  console.log(data);
   //images
   const imgUrl = getBiggestBigImg(images);
   const imgUrlSmall = getBiggestSmallImg(images);
@@ -71,9 +70,30 @@ export function getEventModalMarkup(data) {
   const who = isExists(() => _embedded.attractions[0].name);
 
   //price standard
+  const urlTicket = isExists(() => url);
 
   const standardPrice = standardPricee(priceRanges);
 
+  function standardPricee(priceRanges) {
+    if (!priceRanges)
+      return '<p class="modal__text">Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Check back later</p>';
+    const priceStandardType = makeFirstLetterBig(
+      isExists(() => priceRanges[0].type, '')
+    );
+    const min = priceRanges[0].min;
+    const max = priceRanges[0].max;
+    const currency = priceRanges[0].currency;
+
+    return priceStandardType
+      ? `<p class="modal__text"><svg class="card__iconTicket" width="29" height="20">
+                <use href="${symbolDefs}#icon-ticket"></use>
+              </svg> ${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
+        <a class="modal__btnBlue"  href="${urlTicket}">
+          BUY TICKETS
+        </a>
+      </div>`
+      : '';
+  }
   //price VIP
   const checkVipExists = priceRanges
     ? priceRanges.findIndex(option => option.type === 'VIP')
@@ -144,25 +164,4 @@ export function getEventModalMarkup(data) {
         </div>
       </div>
 `;
-}
-
-function standardPricee(priceRanges) {
-  if (!priceRanges)
-    return '<p class="modal__text">Sorry, we can&#8217;t find that information 💁🏻‍♂️🙁Check back later</p>';
-  const priceStandardType = makeFirstLetterBig(
-    isExists(() => priceRanges[0].type, '')
-  );
-  const min = priceRanges[0].min;
-  const max = priceRanges[0].max;
-  const currency = priceRanges[0].currency;
-
-  return priceStandardType
-    ? `<p class="modal__text"><svg class="card__iconTicket" width="29" height="20">
-                <use href="${symbolDefs}#icon-ticket"></use>
-              </svg> ${priceStandardType} ${min}-${max} ${currency}</p><div class="modal__buyTicketsBtn">
-        <button class="modal__btnBlue" type="button">
-          BUY TICKETS
-        </button>
-      </div>`
-    : '';
 }
