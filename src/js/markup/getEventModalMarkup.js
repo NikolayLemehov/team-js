@@ -20,16 +20,6 @@ function isExists(
   }
 }
 
-// function isExistsImg(cb) {
-//   const url = defaultImg;
-//   try {
-//     if (!cb()) return url;
-//     return cb();
-//   } catch {
-//     return url;
-//   }
-// }
-
 function getBiggestSmallImg(images = []) {
   if (images.length === 0) return defaultImg;
   const newImages = images.filter(it => it.ratio === '4_3');

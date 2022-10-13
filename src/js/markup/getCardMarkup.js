@@ -33,5 +33,3 @@ export function getCardMarkup(data) {
             </div>
           </li>`;
 }
-
-// <img src="${imgUrl}" alt="card ${data.name}" width="267" height="220" className="card__img" loading="lazy">

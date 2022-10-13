@@ -12,19 +12,13 @@ function doAnimate(translateX) {
   anime({
     targets: '.title__part--first',
     translateX,
-    //   rotate: '1turn',
     duration: 3000,
-    //  delay: 1000,
-    //   easing: 'spring(1, 80, 10, 0)',
   });
 
   anime({
     targets: '.title__part--second',
     translateX,
-    //   rotate: '1turn',
     duration: 3000,
-    //  delay: 1000,
-    //   easing: 'spring(1, 80, 10, 0)',
   });
 }
 
