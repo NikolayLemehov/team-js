@@ -56,6 +56,13 @@ export function getEventModalMarkup(data) {
   const latitude = isExists(() => _embedded.venues[0].location.latitude, '');
   const longitude = isExists(() => _embedded.venues[0].location.longitude, '');
 
+  const googleMapAddress = latitude
+    ? `<a class="modal__link" href="https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}" target="_blank"><svg class="card__iconGeo" width="12" height="12">
+                <use href="${symbolDefs}#locationVector"></use>
+              </svg>${place}</a>`
+    : `<p class="modal__link"><svg class="card__iconGeo" width="12" height="12">
+                <use href="${symbolDefs}#locationVector"></use>
+              </svg>${place}</p>`;
   //who
   const who = isExists(() => _embedded.attractions[0].name);
 
@@ -132,9 +139,7 @@ export function getEventModalMarkup(data) {
           <div>
             <h2 class="modal__title">WHERE</h2>
             <p class="modal__textMini">${city}, ${country} </p>
-            <p class="modal__text"><a class="modal__link" href="https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}" target="_blank"><svg class="card__iconGeo" width="12" height="12">
-                <use href="${symbolDefs}#locationVector"></use>
-              </svg>${place}</a></p>
+            <p class="modal__text">${googleMapAddress}</p>
           </div>
           <div class="modal__whoSection">
             <h2 class="modal__title">WHO</h2>
