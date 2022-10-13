@@ -48,13 +48,13 @@ export function getEventModalMarkup(data) {
   const localDate = isExists(() => dates.start.localDate);
   const localTime = isExists(() => dates.start.localTime.slice(0, -3));
   const timezone = isExists(() => dates.timezone);
-
+  console.log(data);
   //where
   const country = isExists(() => _embedded.venues[0].country.name);
   const city = isExists(() => _embedded.venues[0].city.name);
   const place = isExists(() => _embedded.venues[0].name);
-  const latitude = isExists(() => _embedded.venues[0].location.latitude);
-  const longitude = isExists(() => _embedded.venues[0].location.longitude);
+  const latitude = isExists(() => _embedded.venues[0].location.latitude, '');
+  const longitude = isExists(() => _embedded.venues[0].location.longitude, '');
 
   //who
   const who = isExists(() => _embedded.attractions[0].name);
